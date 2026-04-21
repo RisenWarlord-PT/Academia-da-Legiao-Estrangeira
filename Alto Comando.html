@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alto Comando - Academia da Legião Estrangeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .nav-link { transition: all 0.2s; border-bottom: 3px solid transparent; }
+        .nav-link:hover { background-color: #f1f5f9; color: #1a2a3a; }
+        .active-link { color: #1a2a3a !important; border-bottom-color: #d4af37 !important; background-color: #f1f5f9; }
+        .feature-card { transition: transform 0.2s; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .feature-card:hover { transform: translateY(-2px); }
+        .section-title-bar { border-left: 4px solid #d4af37; padding-left: 16px; margin-bottom: 24px; }
+    </style>
+</head>
+<body class="text-gray-800 relative min-h-screen">
+
+    <!-- Header com Logótipo Oficial -->
+    <header class="bg-[#1a2a3a] text-white py-8 border-b-4 border-[#d4af37] text-center px-4">
+        <div class="flex justify-center mb-4">
+            <img src="Academia Legião Estrangeira.jpg" alt="Logótipo Academia Legião Estrangeira" class="h-32 w-32 rounded-full border-2 border-[#d4af37] object-cover shadow-lg">
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tighter">ACADEMIA DA LEGIÃO ESTRANGEIRA</h1>
+        <p class="italic text-[#d4af37] mt-2 text-sm md:text-base font-medium">"Legio Patria Nostra · Estratégia · Força · Coordenação"</p>
+    </header>
+
+    <!-- Navegação Modular -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md overflow-x-auto flex border-b border-gray-200">
+        <a href="index.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Início</a>
+        <a href="doutrinas.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Doutrinas</a>
+        <a href="combate.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Combate</a>
+        <a href="unidades.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Unidades</a>
+        <a href="pesquisa.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Pesquisa</a>
+        <a href="altocomando.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-center active-link">Alto Comando</a>
+        <a href="espionagem.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Espionagem</a>
+        <a href="quiz.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Avaliação</a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-8 pb-24 font-bold">
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8">
+            <!-- Título com barra dourada -->
+            <div class="section-title-bar">
+                <h2 class="text-2xl font-extrabold text-[#1a2a3a] uppercase tracking-tight">VANTAGENS DO ALTO COMANDO</h2>
+            </div>
+            
+            <p class="text-gray-600 text-sm mb-10 leading-relaxed font-medium">
+                O Alto Comando é uma ferramenta indispensável para os comandantes que desejam um controlo preciso e automatizado das suas forças, garantindo vantagem tática mesmo estando fora do QG.
+            </p>
+
+            <!-- Controlo de Fogo -->
+            <div class="p-6 bg-blue-50 border border-blue-100 rounded-2xl shadow-sm mb-10">
+                <h4 class="font-black text-blue-900 text-sm uppercase mb-4 flex items-center gap-2">
+                    <span class="text-blue-500 text-xl">🔵</span> CONTROLO DE FOGO (FIRE CONTROL)
+                </h4>
+                <p class="text-xs text-blue-800 mb-6 italic font-bold">Essencial para Artilharia, Navios e Aeronaves.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm">
+                        <strong class="text-blue-900 block mb-2 underline text-[11px] uppercase tracking-tight">HOLD FIRE (EMBOSCADA)</strong>
+                        <p class="text-[10px] text-gray-600 leading-relaxed font-medium">A unidade não disparará até ordem manual. Fundamental para emboscadas táticas ou evitar denunciar a tua posição a inimigos superiores.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm">
+                        <strong class="text-blue-900 block mb-2 underline text-[11px] uppercase tracking-tight">RETURN FIRE (DEFENSIVO)</strong>
+                        <p class="text-[10px] text-gray-600 leading-relaxed font-medium">Dispara apenas como contra-ataque. Protege-te sem causar incidentes diplomáticos acidentais com nações neutras.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm">
+                        <strong class="text-blue-900 block mb-2 underline text-[11px] uppercase tracking-tight">FIRE AT WILL (PADRÃO)</strong>
+                        <p class="text-[10px] text-gray-600 leading-relaxed font-medium">Ataca automaticamente qualquer alvo hostil ao alcance. O modo mais comum de operação na frente de batalha.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl border border-blue-100 shadow-sm">
+                        <strong class="text-blue-900 block mb-2 underline text-[11px] uppercase tracking-tight">AGGRESSIVE (PERSEGUIÇÃO)</strong>
+                        <p class="text-[10px] text-gray-600 leading-relaxed font-medium">O modo mais agressivo. A unidade perseguirá o inimigo se este sair do raio de alcance para continuar o bombardeamento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fila e Waypoints -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <!-- Fila de Produção -->
+                <div class="feature-card p-6 bg-green-50 border border-green-200 rounded-2xl shadow-sm">
+                    <h4 class="font-black text-green-900 text-sm uppercase mb-4 flex items-center gap-2">
+                        <span class="text-lg">📋</span> FILA DE PRODUÇÃO (BUILD QUEUE)
+                    </h4>
+                    <div class="space-y-4 text-[11px] text-green-800 leading-relaxed">
+                        <p>Permite agendar até 5 construções ou produções em sequência por província.</p>
+                        <ul class="space-y-2 list-disc pl-5">
+                            <li><strong>Eficiência Noturna:</strong> Garante que a produção nunca pare enquanto dormes.</li>
+                            <li><strong>Gestão de Stock:</strong> O custo dos recursos só é deduzido no momento em que a produção do item agendado se inicia.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Waypoints -->
+                <div class="feature-card p-6 bg-red-50 border border-red-100 rounded-2xl shadow-sm">
+                    <h4 class="font-black text-red-900 text-sm uppercase mb-4 flex items-center gap-2">
+                        <span class="text-lg">📍</span> CAMINHOS E WAYPOINTS (SHIFT)
+                    </h4>
+                    <div class="space-y-4 text-[11px] text-red-800 leading-relaxed">
+                        <p>Define rotas personalizadas utilizando a tecla Shift (PC) ou o botão 'Adicionar Caminho'.</p>
+                        <ul class="space-y-2 list-disc pl-5">
+                            <li><strong>Otimização de Terreno:</strong> Obriga as unidades a contornar montanhas por estradas para manter a velocidade máxima.</li>
+                            <li><strong>Flanqueamento Automático:</strong> Programa ataques circulares para atingir o inimigo pelas costas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rally Points e Intel -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Rally Points -->
+                <div class="feature-card p-6 bg-purple-50 border border-purple-200 rounded-2xl shadow-sm">
+                    <h4 class="font-black text-purple-900 text-sm uppercase mb-4 flex items-center gap-2">
+                        <span class="text-lg">🚩</span> PONTOS DE REUNIÃO (RALLY POINTS)
+                    </h4>
+                    <p class="text-[11px] text-purple-800 leading-relaxed font-bold">
+                        Define um destino automático para todas as novas unidades. Ao saírem da fábrica, movem-se sozinhas para a frente de guerra ou pontos de concentração estratégica.
+                    </p>
+                </div>
+
+                <!-- Inteligência -->
+                <div class="feature-card p-6 bg-amber-50 border border-amber-200 rounded-2xl shadow-sm">
+                    <h4 class="font-black text-amber-900 text-sm uppercase mb-4 flex items-center gap-2">
+                        <span class="text-lg">🤝</span> COLABORAÇÃO DE INTELIGÊNCIA
+                    </h4>
+                    <div class="space-y-4 text-[11px] text-amber-800 leading-relaxed">
+                        <p><strong>Partilha Automática:</strong> Mapas e visão partilhados instantaneamente com aliados selecionados.</p>
+                        <p><strong>Jornal Avançado:</strong> Capacidade de inserir imagens e gráficos reais nos artigos do jornal da partida para propaganda.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 pt-8 border-t border-gray-100">
+                <a href="https://wiki.callofwar.com/wiki/ARMY_CONTROLS" target="_blank" class="text-xs font-black text-[#1a2a3a] underline hover:text-[#d4af37] uppercase tracking-widest">
+                    VER DOCUMENTAÇÃO COMPLETA NA WIKI
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="fixed bottom-4 right-4 text-[10px] text-gray-400 font-bold z-[9999] opacity-70">
+        Criado por Afonso Sousa (RisenWarlord)
+    </footer>
+
+</body>
+</html>
