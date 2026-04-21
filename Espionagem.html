@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espionagem - Academia da Legião Estrangeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .nav-link { transition: all 0.2s; border-bottom: 3px solid transparent; }
+        .nav-link:hover { background-color: #f1f5f9; color: #1a2a3a; }
+        .active-link { color: #1a2a3a !important; border-bottom-color: #d4af37 !important; background-color: #f1f5f9; }
+        .spy-card { transition: transform 0.2s; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .spy-card:hover { transform: translateY(-3px); }
+        .section-title-bar { border-left: 4px solid #d4af37; padding-left: 16px; margin-bottom: 24px; }
+    </style>
+</head>
+<body class="text-gray-800 relative min-h-screen">
+
+    <!-- Header com Logótipo Oficial -->
+    <header class="bg-[#1a2a3a] text-white py-8 border-b-4 border-[#d4af37] text-center px-4">
+        <div class="flex justify-center mb-4">
+            <img src="Academia Legião Estrangeira.jpg" alt="Logótipo Academia Legião Estrangeira" class="h-32 w-32 rounded-full border-2 border-[#d4af37] object-cover shadow-lg">
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tighter">ACADEMIA DA LEGIÃO ESTRANGEIRA</h1>
+        <p class="italic text-[#d4af37] mt-2 text-sm md:text-base font-medium">"Legio Patria Nostra · Estratégia · Força · Coordenação"</p>
+    </header>
+
+    <!-- Navegação Modular -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md overflow-x-auto flex border-b border-gray-200">
+        <a href="index.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Início</a>
+        <a href="doutrinas.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Doutrinas</a>
+        <a href="combate.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Combate</a>
+        <a href="unidades.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Unidades</a>
+        <a href="pesquisa.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Pesquisa</a>
+        <a href="altocomando.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Alto Comando</a>
+        <a href="espionagem.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-center active-link">Espionagem</a>
+        <a href="quiz.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Avaliação</a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-8 pb-24 font-bold">
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8">
+            <!-- Título da Secção -->
+            <div class="section-title-bar">
+                <h2 class="text-2xl font-extrabold text-[#1a2a3a] uppercase tracking-tight">REDE DE ESPIONAGEM</h2>
+            </div>
+            
+            <p class="text-gray-600 text-sm mb-10 leading-relaxed font-medium">
+                A espionagem é a arma silenciosa do Call of War. Permite obter informações cruciais sobre o inimigo ou desestabilizar a sua infraestrutura sem mover um único tanque.
+            </p>
+
+            <!-- Grelha de Missões de Espionagem -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Inteligência -->
+                <div class="spy-card p-6 bg-blue-50 border border-blue-100 rounded-2xl">
+                    <h4 class="font-black text-blue-900 text-sm uppercase mb-3 flex items-center gap-2">
+                        <span class="text-lg">🔬</span> INTELIGÊNCIA (INTELLIGENCE)
+                    </h4>
+                    <p class="text-[11px] text-blue-700 font-black mb-4">Custo: 15k $ + 2k/dia.</p>
+                    <p class="text-[11px] text-gray-700 mb-4 font-bold leading-relaxed">Focada na recolha de dados estratégicos. Pode revelar:</p>
+                    <ul class="text-[10px] space-y-2 text-gray-600 font-semibold list-disc pl-5">
+                        <li>Posicionamento de unidades inimigas.</li>
+                        <li>Ordens de movimento e produção.</li>
+                        <li>Mensagens diplomáticas e chat de coligação.</li>
+                        <li>Nível de recursos do adversário.</li>
+                    </ul>
+                </div>
+
+                <!-- Sabotagem Industrial -->
+                <div class="spy-card p-6 bg-red-50 border border-red-100 rounded-2xl">
+                    <h4 class="font-black text-red-900 text-sm uppercase mb-3 flex items-center gap-2">
+                        <span class="text-lg">💥</span> SABOTAGEM INDUSTRIAL
+                    </h4>
+                    <p class="text-[11px] text-red-700 font-black mb-4">Custo: 15k $ + 4k/dia.</p>
+                    <p class="text-[11px] text-gray-700 mb-4 font-bold leading-relaxed">O alvo são as estruturas físicas do inimigo. Resultados comuns:</p>
+                    <ul class="text-[10px] space-y-2 text-gray-600 font-semibold list-disc pl-5">
+                        <li>Danos em edifícios (Fábricas, Aeroportos).</li>
+                        <li>Interrupção de produções em curso.</li>
+                        <li>Destruição parcial de infraestrutura logística.</li>
+                    </ul>
+                </div>
+
+                <!-- Sabotagem Económica -->
+                <div class="spy-card p-6 bg-yellow-50 border border-yellow-100 rounded-2xl">
+                    <h4 class="font-black text-yellow-900 text-sm uppercase mb-3 flex items-center gap-2">
+                        <span class="text-lg">📉</span> SABOTAGEM ECONÓMICA
+                    </h4>
+                    <p class="text-[11px] text-yellow-700 font-black mb-4">Custo: 15k $ + 4k/dia.</p>
+                    <p class="text-[11px] text-gray-700 mb-4 font-bold leading-relaxed">Ataca a moral e o fluxo de recursos. Impactos:</p>
+                    <ul class="text-[10px] space-y-2 text-gray-600 font-semibold list-disc pl-5">
+                        <li>Redução da moral na província alvo.</li>
+                        <li>Roubo ou destruição de recursos (Metal, Petróleo, etc.).</li>
+                        <li>Diminuição da produção diária de recursos.</li>
+                    </ul>
+                </div>
+
+                <!-- Contraespionagem -->
+                <div class="spy-card p-6 bg-green-50 border border-green-100 rounded-2xl">
+                    <h4 class="font-black text-green-900 text-sm uppercase mb-3 flex items-center gap-2">
+                        <span class="text-lg">🛡️</span> CONTRAESPIONAGEM (DEFENSE)
+                    </h4>
+                    <p class="text-[11px] text-green-700 font-black mb-4">Custo: 15k $ + 500/dia.</p>
+                    <p class="text-[11px] text-gray-700 mb-4 font-bold leading-relaxed">Proteção vital para as tuas províncias chave:</p>
+                    <ul class="text-[10px] space-y-2 text-gray-600 font-semibold list-disc pl-5">
+                        <li>Detetam e eliminam espiões inimigos infiltrados.</li>
+                        <li>Reduzem a probabilidade de sucesso de sabotagens rivais.</li>
+                        <li>Mantêm os teus segredos militares seguros.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Rodapé de Custos -->
+            <div class="mt-12 p-10 bg-gray-50 border border-gray-200 rounded-2xl text-center shadow-inner">
+                <h4 class="font-black text-[#1a2a3a] text-sm uppercase mb-4 tracking-widest">CUSTOS E RECRUTAMENTO</h4>
+                <p class="text-[11px] text-gray-600 font-bold leading-relaxed max-w-3xl mx-auto">
+                    O recrutamento de espiões tem um custo inicial de <strong>15,000 $</strong> e a manutenção diária varia entre <strong>500 $ a 4,000 $</strong> dependendo da missão. Lembra-te: Espiões não pagos deixam de trabalhar.
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="fixed bottom-4 right-4 text-[10px] text-gray-400 font-bold z-[9999] opacity-70">
+        Criado por Afonso Sousa (RisenWarlord)
+    </footer>
+
+</body>
+</html>
