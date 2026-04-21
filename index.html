@@ -3,710 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academia da Legião Estrangeira - Call of War</title>
+    <title>Início - Academia da Legião Estrangeira</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .doctrine-card { transition: transform 0.2s; }
-        .doctrine-card:hover { transform: translateY(-2px); }
-        .active-tab-btn { color: #1a2a3a !important; border-bottom-color: #1a2a3a !important; background-color: #f9fafb; }
-        
-        /* Tabelas de Unidades */
-        .unit-table th { background-color: #1a2a3a; color: #d4af37; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
-        .unit-table tr:nth-child(even) { background-color: #f9fafb; }
-        .unit-category-title { border-left: 4px solid #d4af37; padding-left: 12px; margin-bottom: 16px; font-weight: 700; color: #1a2a3a; text-transform: uppercase; letter-spacing: 0.5px; }
-
-        /* Estilos do Quiz */
-        .option-btn { transition: all 0.2s; border-width: 2px; }
-        .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
-        .option-wrong { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
-        .option-disabled { cursor: not-allowed; opacity: 0.7; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .nav-link { transition: all 0.2s; border-bottom: 3px solid transparent; }
+        .nav-link:hover { background-color: #f1f5f9; color: #1a2a3a; }
+        .active-link { color: #1a2a3a !important; border-bottom-color: #d4af37 !important; background-color: #f1f5f9; }
+        .card-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
     </style>
 </head>
 <body class="text-gray-800 relative min-h-screen">
 
-    <!-- Header -->
-    <header class="bg-[#1a2a3a] text-white py-10 border-b-4 border-[#d4af37] text-center shadow-lg px-4">
-        <h1 class="text-2xl md:text-4xl font-bold uppercase tracking-widest">Academia da Legião Estrangeira</h1>
-        <p class="italic text-[#d4af37] mt-3 text-sm md:text-lg">"Legio Patria Nostra · Estratégia · Força · Coordenação"</p>
+    <!-- Header com Logótipo Oficial -->
+    <header class="bg-[#1a2a3a] text-white py-8 border-b-4 border-[#d4af37] text-center px-4">
+        <div class="flex justify-center mb-4">
+            <img src="Academia Legião Estrangeira.jpg" alt="Logótipo Academia Legião Estrangeira" class="h-32 w-32 rounded-full border-2 border-[#d4af37] object-cover shadow-lg">
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tighter">ACADEMIA DA LEGIÃO ESTRANGEIRA</h1>
+        <p class="italic text-[#d4af37] mt-2 text-sm md:text-base font-medium">"Legio Patria Nostra · Estratégia · Força · Coordenação"</p>
     </header>
 
-    <!-- Navigation -->
+    <!-- Navegação Modular -->
     <nav class="sticky top-0 z-50 bg-white shadow-md overflow-x-auto flex border-b border-gray-200">
-        <button onclick="showTab('home')" class="nav-btn flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase tracking-tighter text-gray-500 border-b-2 border-transparent hover:bg-gray-50 active-tab-btn" id="btn-home">Início</button>
-        <button onclick="showTab('doutrinas')" class="nav-btn flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase tracking-tighter text-gray-500 border-b-2 border-transparent hover:bg-gray-50" id="btn-doutrinas">Doutrinas</button>
-        <button onclick="showTab('combate')" class="nav-btn flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase tracking-tighter text-gray-500 border-b-2 border-transparent hover:bg-gray-50" id="btn-combate">Combate</button>
-        <button onclick="showTab('unidades')" class="nav-btn flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase tracking-tighter text-gray-500 border-b-2 border-transparent hover:bg-gray-50" id="btn-unidades">Unidades</button>
-        <button onclick="showTab('pesquisa')" class="nav-btn flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase tracking-tighter text-gray-500 border-b-2 border-transparent hover:bg-gray-50" id="btn-pesquisa">Pesquisa</button>
-        <button onclick="showTab('altocomando')" class="nav-btn flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase tracking-tighter text-gray-500 border-b-2 border-transparent hover:bg-gray-50" id="btn-altocomando">Alto Comando</button>
-        <button onclick="showTab('espionagem')" class="nav-btn flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase tracking-tighter text-gray-500 border-b-2 border-transparent hover:bg-gray-50" id="btn-espionagem">Espionagem</button>
-        <button onclick="showTab('quiz')" class="nav-btn flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase tracking-tighter text-gray-500 border-b-2 border-transparent hover:bg-gray-50" id="btn-quiz">Avaliação</button>
+        <a href="index.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-center active-link">Início</a>
+        <a href="doutrinas.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Doutrinas</a>
+        <a href="combate.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Combate</a>
+        <a href="unidades.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Unidades</a>
+        <a href="pesquisa.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Pesquisa</a>
+        <a href="altocomando.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Alto Comando</a>
+        <a href="espionagem.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Espionagem</a>
+        <a href="quiz.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Avaliação</a>
     </nav>
 
-    <div class="max-w-6xl mx-auto p-4 md:p-8 pb-24">
-
-        <!-- INÍCIO -->
-        <section id="home" class="tab-content active space-y-6">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-6 uppercase">Quartel-General</h2>
-                <p class="mb-6 text-gray-600 leading-relaxed text-sm md:text-base">
-                    Bem-vindo, soldado. Este portal é o repositório central da inteligência tática da <span class="font-bold text-[#1a2a3a]">Legião Estrangeira</span>. Aqui, os recrutas são treinados para dominar as mecânicas de <strong>Call of War</strong>.
+    <main class="max-w-6xl mx-auto p-4 md:p-8 pb-24">
+        <!-- Secção Quartel-General (Fiel à image_753e7d.png) -->
+        <div class="bg-white p-8 rounded-xl card-shadow border border-gray-100">
+            <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-6 uppercase tracking-tight">QUARTEL-GENERAL</h2>
+            
+            <p class="mb-8 text-gray-600 leading-relaxed font-medium">
+                Bem-vindo, soldado. Este portal é o repositório central da inteligência tática da <span class="font-bold text-[#1a2a3a]">Legião Estrangeira</span>. Aqui, os recrutas são treinados para dominar as mecânicas de <strong>Call of War</strong> através da disciplina e análise técnica.
+            </p>
+            
+            <div class="bg-amber-50 border-l-4 border-amber-400 p-6 mb-10 rounded-r-lg shadow-sm">
+                <h4 class="text-amber-900 font-extrabold text-sm uppercase mb-2">MISSÃO AUTODIDACTA</h4>
+                <p class="text-amber-800 italic font-medium leading-relaxed">
+                    "Acede ao jogo e busca por informações em cada unidade (não importa em qual doutrina esteja, a descrição será a mesma); Repete isto para todas as unidades."
                 </p>
-                
-                <div class="bg-amber-50 border-l-4 border-amber-400 p-5 mb-8 rounded-r-lg shadow-sm">
-                    <p class="text-sm text-amber-900 font-bold mb-2 uppercase">Missão Autodidata</p>
-                    <p class="text-sm text-amber-800 leading-relaxed italic">
-                        "Acede ao jogo e busca por informações em cada unidade (não importa em qual doutrina esteja, a descrição será a mesma); Repete isto para todas as unidades."
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="p-6 bg-gray-50 rounded-xl text-center border border-gray-100 shadow-sm">
-                        <div class="text-3xl mb-2">🗺️</div>
-                        <strong class="block text-[#1a2a3a] mb-2 uppercase text-sm font-bold">Estratégia</strong>
-                        <p class="text-xs text-gray-500">Planeamento tecnológico e análise de mapa.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-xl text-center border border-gray-100 shadow-sm">
-                        <div class="text-3xl mb-2">⚔️</div>
-                        <strong class="block text-[#1a2a3a] mb-2 uppercase text-sm font-bold">Força</strong>
-                        <p class="text-xs text-gray-500">Maximização dos bónus das tropas.</p>
-                    </div>
-                    <div class="p-6 bg-gray-50 rounded-xl text-center border border-gray-100 shadow-sm">
-                        <div class="text-3xl mb-2">🤝</div>
-                        <strong class="block text-[#1a2a3a] mb-2 uppercase text-sm font-bold">Coordenação</strong>
-                        <p class="text-xs text-gray-500">Sincronia logística e ataques massivos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DOUTRINAS -->
-        <section id="doutrinas" class="tab-content space-y-8">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-6 uppercase">Introdução às Doutrinas</h2>
-                <p class="text-gray-600 leading-relaxed text-sm">As doutrinas em Call of War são pilares estratégicos que definem o comportamento das nações no campo de batalha. Cada doutrina apresenta vantagens e desvantagens que moldam o estilo de jogo, desde a composição dos exércitos até a forma de administrar recursos.</p>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-6 uppercase">Filosofia e Impacto Tático</h2>
-                <div class="space-y-6">
-                    <div class="p-5 bg-red-50 rounded-xl border border-red-100">
-                        <h4 class="font-bold text-red-900 uppercase text-sm mb-2">1. Eixo (Poder)</h4>
-                        <p class="text-sm text-gray-700 leading-relaxed mb-3">Foca na força bruta e na resistência. Suas unidades possuem mais pontos de vida e causam maior dano, mas são mais caras para produzir. Ideal para quem prefere ataques diretos e exércitos robustos.</p>
-                        <p class="text-xs font-semibold text-red-800 border-t border-red-200 pt-2 italic">Impacto nas Unidades: Foco no fortalecimento individual com bónus de vida e dano. Contudo, o custo elevado limita a quantidade operativa.</p>
-                    </div>
-                    <div class="p-5 bg-blue-50 rounded-xl border border-blue-100">
-                        <h4 class="font-bold text-blue-900 uppercase text-sm mb-2">2. Aliados (Otimização)</h4>
-                        <p class="text-sm text-gray-700 leading-relaxed mb-3">Priorizam eficiência e rapidez. Suas unidades são produzidas e atualizadas mais rapidamente e com menor custo, permitindo uma estratégia flexível e ágil. Perfeito para o domínio pela superioridade logística.</p>
-                        <p class="text-xs font-semibold text-blue-800 border-t border-blue-200 pt-2 italic">Impacto nas Unidades: Otimização para produção e atualização rápida, criando exércitos modernos em menor tempo, apesar da velocidade de movimento reduzida.</p>
-                    </div>
-                    <div class="p-5 bg-purple-50 rounded-xl border border-purple-100">
-                        <h4 class="font-bold text-purple-900 uppercase text-sm mb-2">3. Comintern (Quantidade)</h4>
-                        <p class="text-sm text-gray-700 leading-relaxed mb-3">Enfatiza números e sustentabilidade. Com custos de produção e manutenção reduzidos, permite a criação de exércitos massivos, compensando a desvantagem de dano individual reduzido.</p>
-                        <p class="text-xs font-semibold text-purple-800 border-t border-purple-200 pt-2 italic">Impacto nas Unidades: Favorece o volume em detrimento do poder individual. A economia de manutenção permite sustentar frentes de guerra vastas.</p>
-                    </div>
-                    <div class="p-5 bg-orange-50 rounded-xl border border-orange-100">
-                        <h4 class="font-bold text-orange-900 uppercase text-sm mb-2">4. Pan-Asiática (Surpresa)</h4>
-                        <p class="text-sm text-gray-700 leading-relaxed mb-3">Baseia-se na mobilidade e adaptabilidade. Suas unidades são mais rápidas, têm maior alcance de visão e bônus de terreno. Ideal para ataques rápidos e controle territorial agressivo.</p>
-                        <p class="text-xs font-semibold text-orange-800 border-t border-orange-200 pt-2 italic">Impacto nas Unidades: Prioridade absoluta na mobilidade e adaptação ao terreno. As unidades são ágeis e videntes, embora mais frágeis em combate direto.</p>
-                    </div>
+            <!-- Cards de Pilares -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 bg-gray-50 rounded-2xl text-center border border-gray-100 shadow-sm hover:bg-white transition-colors">
+                    <div class="text-3xl mb-4">🗺️</div>
+                    <strong class="block text-[#1a2a3a] mb-2 uppercase text-sm font-black">ESTRATÉGIA</strong>
+                    <p class="text-xs text-gray-500 font-bold">Planeamento tecnológico e análise de mapa.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-2xl text-center border border-gray-100 shadow-sm hover:bg-white transition-colors">
+                    <div class="text-3xl mb-4">⚔️</div>
+                    <strong class="block text-[#1a2a3a] mb-2 uppercase text-sm font-black">FORÇA</strong>
+                    <p class="text-xs text-gray-500 font-bold">Maximização dos bónus das tropas.</p>
+                </div>
+                <div class="p-8 bg-gray-50 rounded-2xl text-center border border-gray-100 shadow-sm hover:bg-white transition-colors">
+                    <div class="text-3xl mb-4">🤝</div>
+                    <strong class="block text-[#1a2a3a] mb-2 uppercase text-sm font-black">COORDENAÇÃO</strong>
+                    <p class="text-xs text-gray-500 font-bold">Sincronia logística e ataques massivos.</p>
                 </div>
             </div>
+        </div>
+    </main>
 
-            <h2 class="text-xl font-bold text-[#1a2a3a] uppercase px-2 mb-2 tracking-tight">Cards de Referência de Unidades</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="doctrine-card bg-white rounded-xl shadow-lg border-t-4 border-[#c62828] flex flex-col text-xs">
-                    <div class="bg-[#c62828] text-white p-4 text-center font-bold tracking-widest uppercase">Eixo</div>
-                    <div class="p-5 space-y-2 flex-grow">
-                        <div class="flex justify-between border-b pb-1"><span>Pontos de Vida</span> <span class="text-green-600 font-bold">+15%</span></div>
-                        <div class="flex justify-between border-b pb-1"><span>Dano</span> <span class="text-green-600 font-bold">+15%</span></div>
-                        <div class="flex justify-between border-b pb-1"><span>Custo Produção</span> <span class="text-red-600 font-bold">+10%</span></div>
-                        <div class="mt-4">
-                            <h5 class="text-[10px] font-bold text-gray-400 uppercase mb-2">Unidades Prioritárias</h5>
-                            <ul class="space-y-1 text-gray-600 font-semibold italic">
-                                <li>• Carro Blindado</li>
-                                <li>• Tanque Médio</li>
-                                <li>• Tanque Pesado (M6/Tiger)</li>
-                                <li>• Canhão Ferroviário</li>
-                                <li>• Foguete / V2</li>
-                                <li>• Bomb. de Ataque</li>
-                                <li>• Submarino</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="doctrine-card bg-white rounded-xl shadow-lg border-t-4 border-[#1565c0] flex flex-col text-xs">
-                    <div class="bg-[#1565c0] text-white p-4 text-center font-bold tracking-widest uppercase">Aliados</div>
-                    <div class="p-5 space-y-2 flex-grow">
-                        <div class="flex justify-between border-b pb-1"><span>Tempo Produção</span> <span class="text-green-600 font-bold">-30%</span></div>
-                        <div class="flex justify-between border-b pb-1"><span>Custo/Tempo Pesq.</span> <span class="text-green-600 font-bold">-25%</span></div>
-                        <div class="flex justify-between border-b pb-1"><span>Atualização</span> <span class="text-green-600 font-bold">-20%</span></div>
-                        <div class="flex justify-between border-b pb-1"><span>Velocidade</span> <span class="text-red-600 font-bold">-10%</span></div>
-                        <div class="mt-4">
-                            <h5 class="text-[10px] font-bold text-gray-400 uppercase mb-2">Unidades Prioritárias</h5>
-                            <ul class="space-y-1 text-gray-600 font-semibold italic">
-                                <li>• Para-infantaria</li>
-                                <li>• Bomb. Estratégico</li>
-                                <li>• Porta-aviões</li>
-                                <li>• Destróier</li>
-                                <li>• Navio Transporte</li>
-                                <li>• Míssil</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="doctrine-card bg-white rounded-xl shadow-lg border-t-4 border-[#7b1fa2] flex flex-col text-xs">
-                    <div class="bg-[#7b1fa2] text-white p-4 text-center font-bold tracking-widest uppercase">Comintern</div>
-                    <div class="p-5 space-y-2 flex-grow">
-                        <div class="flex justify-between border-b pb-1"><span>Custo Produção</span> <span class="text-green-600 font-bold">-15%</span></div>
-                        <div class="flex justify-between border-b pb-1"><span>Custo Manutenção</span> <span class="text-green-600 font-bold">-30%</span></div>
-                        <div class="flex justify-between border-b pb-1"><span>Dano</span> <span class="text-red-600 font-bold">-10%</span></div>
-                        <div class="mt-3">
-                            <h5 class="text-[9px] font-bold text-gray-400 uppercase mb-1">Unidades Prioritárias</h5>
-                            <ul class="space-y-0.5 text-gray-600 font-semibold italic">
-                                <li>• Infantaria / Milícia</li>
-                                <li>• Antitanque</li>
-                                <li>• Artilharia</li>
-                                <li>• Art. Foguetes (Katyusha)</li>
-                                <li>• Tanque Pesado (IS)</li>
-                                <li>• Couraçado</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="doctrine-card bg-white rounded-xl shadow-lg border-t-4 border-[#e65100] flex flex-col text-xs">
-                    <div class="bg-[#e65100] text-white p-4 text-center font-bold tracking-widest uppercase">Pan-Asiática</div>
-                    <div class="p-5 space-y-2 flex-grow">
-                        <div class="flex justify-between border-b pb-1"><span>Velocidade</span> <span class="text-green-600 font-bold">+20%</span></div>
-                        <div class="flex justify-between border-b pb-1"><span>Alcance Visão</span> <span class="text-green-600 font-bold">+30%</span></div>
-                        <div class="flex justify-between border-b pb-1"><span>Bónus Terreno</span> <span class="text-green-600 font-bold">+20%</span></div>
-                        <div class="flex justify-between border-b pb-1"><span>Pontos de Vida</span> <span class="text-red-600 font-bold">-10%</span></div>
-                        <div class="mt-3">
-                            <h5 class="text-[9px] font-bold text-gray-400 uppercase mb-1">Unidades Prioritárias</h5>
-                            <ul class="space-y-0.5 text-gray-600 font-semibold italic">
-                                <li>• Carro Blindado</li>
-                                <li>• Tanque Leve</li>
-                                <li>• Intercetor</li>
-                                <li>• Bomb. Naval</li>
-                                <li>• Couraçado (Yamato)</li>
-                                <li>• Inf. Marinha</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-6 uppercase">Influência na Economia</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
-                    <div class="p-4 bg-gray-50 border rounded-lg"><strong>Eixo:</strong> Altos custos de produção demandam economia robusta, focando em qualidade.</div>
-                    <div class="p-4 bg-gray-50 border rounded-lg"><strong>Aliados:</strong> Custos reduzidos em pesquisa/produção permitem avanços constantes.</div>
-                    <div class="p-4 bg-gray-50 border rounded-lg"><strong>Comintern:</strong> Foco em sustentação de grandes exércitos e expansão territorial.</div>
-                    <div class="p-4 bg-gray-50 border rounded-lg"><strong>Pan-Asiática:</strong> Economia menos dependente de manutenção devido a bónus situacionais.</div>
-                </div>
-                <div class="text-center mt-10">
-                    <h4 class="font-bold text-sm uppercase mb-4 text-[#1a2a3a]">Base de Conhecimento Externa</h4>
-                    <a href="https://wiki.callofwar.com/wiki/DOCTRINES" target="_blank" class="inline-block px-10 py-4 bg-[#d4af37] text-[#1a2a3a] rounded-xl font-bold uppercase tracking-widest hover:bg-yellow-500 transition-colors shadow-lg text-xs md:text-sm">Wiki Oficial de Doutrinas</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- COMBATE -->
-        <section id="combate" class="tab-content space-y-8">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-6 uppercase">Inteligência de Combate Avançada</h2>
-                <p class="text-gray-600 text-sm leading-relaxed mb-8">Dominar o combate exige entender a matemática por trás da troca de tiros. Esta secção detalha as mecânicas profundas do motor de jogo que ditam a sobrevivência das tuas divisões.</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Ataque vs Defesa -->
-                    <div class="p-6 bg-blue-50 border border-blue-200 rounded-xl shadow-sm">
-                        <h4 class="font-bold text-blue-900 uppercase text-sm mb-4 flex items-center gap-2">⚔️ Postura de Ataque</h4>
-                        <div class="space-y-3 text-xs leading-relaxed text-blue-900">
-                            <p><strong>Vantagens:</strong> Iniciativa estratégica (escolha do momento e local), capacidade de cerco e bónus de movimento rápido em infraestrutura intacta.</p>
-                            <p><strong>Desvantagens:</strong> Exposição ao fogo de retribuição e penalização de moral ao capturar províncias distantes.</p>
-                            <p><strong>Unidades de Choque (como por exemplo):</strong> Tanque Médio, Tanque Leve, Infantaria Motorizada, Infantaria Mecanizada e Comandos.</p>
-                        </div>
-                    </div>
-
-                    <div class="p-6 bg-green-50 border border-green-200 rounded-xl shadow-sm">
-                        <h4 class="font-bold text-green-900 uppercase text-sm mb-4 flex items-center gap-2">🛡️ Postura de Defesa</h4>
-                        <div class="space-y-3 text-xs leading-relaxed text-green-900">
-                            <p><strong>Vantagens:</strong> Bónus massivos de Bunker (até 90% redução de dano), entrincheiramento e bónus de terreno defensivo (Cidades/Florestas).</p>
-                            <p><strong>Desvantagens:</strong> Perda de iniciativa; vulnerabilidade a bombardeamentos prolongados de artilharia e mísseis.</p>
-                            <p><strong>Unidades de Sustentação (como por exemplo):</strong> Antitanque, Antiaéreo, Milícia e Destruidor de Tanques.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                    <div class="p-6 bg-red-50 border border-red-200 rounded-xl shadow-sm">
-                        <h4 class="font-bold text-red-900 uppercase text-sm mb-4 border-b border-red-200 pb-2 flex items-center gap-2">⚖️ DEFINIÇÃO: SBOR</h4>
-                        <div class="space-y-4 text-xs leading-relaxed text-red-900">
-                            <p><strong>Strength Based Overkill Reduction</strong> (Redução de Poder Baseada no Tamanho): É a mecânica que limita o dano total de pilhas (stacks) gigantes.</p>
-                            <p><strong>A Regra dos 10:</strong> Apenas as 10 unidades com os melhores valores ofensivos contribuem com o seu dano total. A partir da 11ª unidade, o poder de ataque individual cai drasticamente.</p>
-                            <p><strong>Escudo de HP:</strong> Unidades além do limite de 10 não atacam com eficiência, mas absorvem dano. São úteis apenas como "carne para canhão" para proteger as unidades de elite da pilha.</p>
-                        </div>
-                    </div>
-
-                    <div class="p-6 bg-blue-50 border border-blue-200 rounded-xl shadow-sm">
-                        <h4 class="font-bold text-blue-900 uppercase text-sm mb-4 border-b border-blue-200 pb-2 flex items-center gap-2">✈️ MECÂNICA DE PATRULHA VS ATAQUE</h4>
-                        <div class="space-y-4 text-xs leading-relaxed text-blue-900">
-                            <p><strong>Ciclo de 15 Minutos:</strong> Aviões em patrulha aplicam o seu dano a cada 15 minutos (25% do dano horário por tick). Isto permite reagir mais rápido a movimentos inimigos.</p>
-                            <p><strong>Dano de Área:</strong> A patrulha divide o dano por todas as pilhas inimigas no círculo. Se queres foco total num alvo, usa o comando "Atacar", que aplica 100% do dano mas tem um ciclo de 1 hora.</p>
-                            <p><strong>Deteção:</strong> Apenas aviões em patrulha revelam unidades furtivas com eficácia constante.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl mt-8 shadow-sm">
-                    <h4 class="font-bold text-[#1a2a3a] uppercase text-sm mb-4">🛡️ DEFESA ANTIAÉREA: PONTO VS ÁREA</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs leading-relaxed">
-                        <div class="bg-white p-3 rounded border border-slate-200">
-                            <strong class="text-[#1a2a3a] block mb-1">Defesa de Ponto (Point Defense):</strong>
-                            Quando um avião ataca diretamente uma pilha, a Defesa AA dessa pilha retribui o dano imediatamente. É a forma mais eficaz de abater bombardeiros.
-                        </div>
-                        <div class="bg-white p-3 rounded border border-slate-200">
-                            <strong class="text-[#1a2a3a] block mb-1">Defesa de Área (Envelope):</strong>
-                            Unidades AA protegem um raio ao seu redor. Aviões que voam sobre este raio (mesmo sem atacar a pilha AA) recebem dano automático a cada tick.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-6 bg-blue-50 border border-blue-200 rounded-xl mt-8 shadow-sm">
-                    <h4 class="font-bold text-blue-900 uppercase text-sm mb-4">🛡️ CLASSES DE BLINDAGEM E FATOR DE CONDIÇÃO</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs leading-relaxed text-blue-900">
-                        <div class="bg-white p-3 rounded border border-blue-200">
-                            <strong class="block mb-1">Distribuição de Dano:</strong>
-                            Numa pilha mista (ex: Infantaria + Tanques), o dano recebido é distribuído proporcionalmente ao HP e ao tipo de blindagem. Ter infantaria "barata" numa pilha de tanques ajuda a absorver o dano anti-blindado inimigo.
-                        </div>
-                        <div class="bg-white p-3 rounded border border-blue-200">
-                            <strong class="block mb-1">Performance por HP:</strong>
-                            Matematicamente, <strong>Dano Real = Dano Base * (% de Condição)</strong>. Uma unidade com 20% de vida é virtualmente inútil no ataque, servindo apenas para retardar o inimigo.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-6 bg-amber-50 border border-amber-200 rounded-xl shadow-sm">
-                    <h4 class="font-bold text-amber-900 uppercase text-sm mb-4 flex items-center gap-2">🏳️ PROTOCOLOS DIPLOMÁTICOS</h4>
-                    <div class="space-y-3 text-xs leading-relaxed text-amber-900 font-medium">
-                        <p><strong>Penalização de Surpresa:</strong> Atacar sem declarar guerra causa uma queda na popularidade global (Moral IA). Isso faz com que países controlados pelo computador te embarguem ou ataquem preventivamente.</p>
-                        <p><strong>Zonas de Controlo:</strong> Províncias desprotegidas são capturadas instantaneamente se qualquer unidade terrestre tocar no seu centro geográfico.</p>
-                    </div>
-                </div>
-
-                <div class="text-center mt-6">
-                    <a href="https://wiki.callofwar.com/wiki/COMBAT" target="_blank" class="text-xs font-bold text-[#1a2a3a] underline hover:text-[#d4af37]">Consultar Manual de Combate Completo na Wiki Oficial</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- UNIDADES -->
-        <section id="unidades" class="tab-content space-y-8">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-6 uppercase">Catálogo Tático de Unidades</h2>
-                
-                <div class="mb-10">
-                    <h3 class="unit-category-title text-base md:text-lg">🪖 CATEGORIA: INFANTARIA</h3>
-                    <div class="overflow-x-auto rounded-lg border">
-                        <table class="w-full unit-table text-xs">
-                            <thead><tr><th class="p-3 text-left">UNIDADE</th><th class="p-3 text-left">FUNÇÃO TÁTICA</th></tr></thead>
-                            <tbody class="text-gray-700 font-medium">
-                                <tr><td class="p-3 font-bold">Milícia</td><td class="p-3">Defesa urbana/floresta barata. Unidade furtiva em cidades e florestas. Lenta.</td></tr>
-                                <tr><td class="p-3 font-bold">Infantaria</td><td class="p-3">Espinha dorsal equilibrada. Necessária para capturar e segurar território.</td></tr>
-                                <tr><td class="p-3 font-bold">Infantaria Motorizada</td><td class="p-3">Rápida em estradas. Excelente contra infantaria em terreno aberto.</td></tr>
-                                <tr><td class="p-3 font-bold">Infantaria Mecanizada</td><td class="p-3">Blindagem leve com alto poder de fogo. O topo da força terrestre humana.</td></tr>
-                                <tr><td class="p-3 font-bold">Comandos</td><td class="p-3">Unidade de elite furtiva. Ignora penalidades de terreno e deteta inimigos ocultos.</td></tr>
-                                <tr><td class="p-3 font-bold">Paraquedistas</td><td class="p-3">Infiltração aérea profunda. Salto atrás das lines para sabotagem logística.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="mb-10">
-                    <h3 class="unit-category-title text-base md:text-lg">🚜 CATEGORIA: BLINDADOS</h3>
-                    <div class="overflow-x-auto rounded-lg border">
-                        <table class="w-full unit-table text-xs">
-                            <thead><tr><th class="p-3 text-left">UNIDADE</th><th class="p-3 text-left">FUNÇÃO TÁTICA</th></tr></thead>
-                            <tbody class="text-gray-700 font-medium">
-                                <tr><td class="p-3 font-bold">Carro Blindado</td><td class="p-3">Reconhecimento avançado. Alta visão e velocidade. Deteta comandos.</td></tr>
-                                <tr><td class="p-3 font-bold">Tanque Leve</td><td class="p-3">Blitzkrieg inicial. Rápido e mortal contra infantaria desprotegida.</td></tr>
-                                <tr><td class="p-3 font-bold">Tanque Médio</td><td class="p-3">O cavalo de batalha. Equilíbrio perfeito entre armadura, velocidade e dano.</td></tr>
-                                <tr><td class="p-3 font-bold">Tanque Pesado</td><td class="p-3">O martelo. Máxima resistência. Lento, mas imparável em combate direto.</td></tr>
-                                <tr><td class="p-3 font-bold">Destruidor de Tanques</td><td class="p-3">Especialista anti-blindados. Defesa massiva contra ataques de tanques.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="mb-10">
-                    <h3 class="unit-category-title text-base md:text-lg">🎯 CATEGORIA: ARMAMENTOS (SUPORTE)</h3>
-                    <div class="overflow-x-auto rounded-lg border">
-                        <table class="w-full unit-table text-xs">
-                            <thead><tr><th class="p-3 text-left">UNIDADE</th><th class="p-3 text-left">FUNÇÃO TÁTICA</th></tr></thead>
-                            <tbody class="text-gray-700 font-medium">
-                                <tr><td class="p-3 font-bold">Antitanque</td><td class="p-3">Defesa estática económica contra blindados. Essencial para segurar linhas.</td></tr>
-                                <tr><td class="p-3 font-bold">Artilharia</td><td class="p-3">Rainha das batalhas. Bombardeamento à distância sem risco de contra-ataque.</td></tr>
-                                <tr><td class="p-3 font-bold">Artilharia AP (Móvel)</td><td class="p-3">Artilharia montada em chassi blindado. Segue o ritmo dos tanques.</td></tr>
-                                <tr><td class="p-3 font-bold">Antiaéreo</td><td class="p-3">Escudo contra a força aérea. Protege unidades de bombardeamentos.</td></tr>
-                                <tr><td class="p-3 font-bold">Antiaéreo AP (Móvel)</td><td class="p-3">Defesa aérea móvel para colunas blindadas em movimento.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="mb-10">
-                    <h3 class="unit-category-title text-base md:text-lg">✈️ CATEGORIA: FORÇA AÉREA</h3>
-                    <div class="overflow-x-auto rounded-lg border">
-                        <table class="w-full unit-table text-xs">
-                            <thead><tr><th class="p-3 text-left">UNIDADE</th><th class="p-3 text-left">FUNÇÃO TÁTICA</th></tr></thead>
-                            <tbody class="text-gray-700 font-medium">
-                                <tr><td class="p-3 font-bold">Intercetor</td><td class="p-3">Superioridade aérea. Caça bombardeiros e aviões de reconhecimento.</td></tr>
-                                <tr><td class="p-3 font-bold">Bombardeiro Tático</td><td class="p-3">Supressão terrestre. Foco em destruir infantaria e veículos leves.</td></tr>
-                                <tr><td class="p-3 font-bold">Bombardeiro de Ataque</td><td class="p-3">Especialista anti-armadura. Mortal contra tanques e navios.</td></tr>
-                                <tr><td class="p-3 font-bold">Bombardeiro Estratégico</td><td class="p-3">Guerra económica. Destrói edifícios, aeroportos e moral das cidades.</td></tr>
-                                <tr><td class="p-3 font-bold">Bombardeiro Naval</td><td class="p-3">Patrulha oceânica. Longo alcance para detetar e afundar frotas.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="mb-10">
-                    <h3 class="unit-category-title text-base md:text-lg">⚓ CATEGORIA: FORÇA NAVAL</h3>
-                    <div class="overflow-x-auto rounded-lg border">
-                        <table class="w-full unit-table text-xs">
-                            <thead><tr><th class="p-3 text-left">UNIDADE</th><th class="p-3 text-left">FUNÇÃO TÁTICA</th></tr></thead>
-                            <tbody class="text-gray-700 font-medium">
-                                <tr><td class="p-3 font-bold">Destróier</td><td class="p-3">Sentinela dos mares. Deteta e caça submarinos. Defesa AA naval.</td></tr>
-                                <tr><td class="p-3 font-bold">Cruzador</td><td class="p-3">Navio equilibrado. O terror dos aviões no mar. Versátil.</td></tr>
-                                <tr><td class="p-3 font-bold">Couraçado</td><td class="p-3">Soberano naval. Dano massivo e bombardeamento costeiro de longo alcance.</td></tr>
-                                <tr><td class="p-3 font-bold">Submarino</td><td class="p-3">Assassino furtivo. Invisível exceto para destróieres. Ataca couraçados e comboios.</td></tr>
-                                <tr><td class="p-3 font-bold">Porta-aviões</td><td class="p-3">Base aérea móvel. Projeta poder aéreo para longe das costas.</td></tr>
-                                <tr><td class="p-3 font-bold">Transporte</td><td class="p-3">Vulnerável. Necessário para mover tropas terrestres entre continentes.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="mb-10">
-                    <h3 class="unit-category-title text-base md:text-lg">☢️ CATEGORIA: ARMAS SECRETAS</h3>
-                    <div class="overflow-x-auto rounded-lg border">
-                        <table class="w-full unit-table text-xs">
-                            <thead><tr><th class="p-3 text-left">UNIDADE</th><th class="p-3 text-left">FUNÇÃO TÁTICA</th></tr></thead>
-                            <tbody class="text-gray-700 font-medium">
-                                <tr><td class="p-3 font-bold">Artilharia de Foguete</td><td class="p-3">Dano de área massivo contra alvos moles. Ótima para limpar pilhas.</td></tr>
-                                <tr><td class="p-3 font-bold">Art. Foguete AP</td><td class="p-3">Poder de fogo de foguetes com a mobilidade e proteção de um blindado.</td></tr>
-                                <tr><td class="p-3 font-bold">Canhão Ferroviário</td><td class="p-3">Alcance absoluto. Bombardeia exércitos a uma distância segura. Lento.</td></tr>
-                                <tr><td class="p-3 font-bold">Foguetes (V1/V2)</td><td class="p-3">Mísseis imparáveis de longo alcance. Destruição garantida do alvo.</td></tr>
-                                <tr><td class="p-3 font-bold">Caça-Foguete</td><td class="p-3">Intercetor de alta velocidade para defesa pontual contra jatos inimigos.</td></tr>
-                                <tr><td class="p-3 font-bold">Bombardeiro Nuclear</td><td class="p-3">O fim de tudo. Uma única bomba aniquila exércitos inteiros e cidades.</td></tr>
-                                <tr><td class="p-3 font-bold">Foguete Nuclear</td><td class="p-3">Aniquilação total garantida sem possibilidade de interceção eficaz.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="text-center mt-6">
-                    <a href="https://wiki.callofwar.com/wiki/UNITS" target="_blank" class="text-xs font-bold text-[#1a2a3a] underline hover:text-[#d4af37]">Consultar Wiki Completa de Unidades</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- PESQUISA -->
-        <section id="pesquisa" class="tab-content space-y-8">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-6 uppercase">Doutrina: Pesquisa</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="p-6 bg-white border-t-4 border-[#1565c0] rounded shadow-sm">
-                        <h4 class="font-bold text-[#1565c0] uppercase text-sm mb-3">Doutrina Aliada</h4>
-                        <p class="text-xs mb-3 font-semibold text-gray-700">Dia 1: Infantaria, artilharia e caças.</p>
-                        <p class="text-xs italic bg-blue-50 p-3 rounded text-blue-900 border border-blue-100">Impacto: Progresso lento no início, priorizando defesa até tecnologias pesadas.</p>
-                    </div>
-                    <div class="p-6 bg-white border-t-4 border-[#c62828] rounded shadow-sm">
-                        <h4 class="font-bold text-[#c62828] uppercase text-sm mb-3">Doutrina do Eixo</h4>
-                        <p class="text-xs mb-3 font-semibold text-gray-700">Dia 1: Ampla variedade (tanques leves, infantaria, caças).</p>
-                        <p class="text-xs italic bg-red-50 p-3 rounded text-red-900 border border-red-100">Impacto: Ofensivas de alto impacto logo no arranque.</p>
-                    </div>
-                    <div class="p-6 bg-white border-t-4 border-[#7b1fa2] rounded shadow-sm">
-                        <h4 class="font-bold text-[#7b1fa2] uppercase text-sm mb-3">Doutrina Komiterm</h4>
-                        <p class="text-xs mb-3 font-semibold text-gray-700">Dia 1: Acesso rápido a infantaria, artilharia e tanques leves.</p>
-                        <p class="text-xs italic bg-purple-50 p-3 rounded text-purple-900 border border-purple-100">Impacto: Quantidade absoluta sobre o inimigo.</p>
-                    </div>
-                    <div class="p-6 bg-white border-t-4 border-[#e65100] rounded shadow-sm">
-                        <h4 class="font-bold text-[#e65100] uppercase text-sm mb-3">Doutrina Pan-Asiática</h4>
-                        <p class="text-xs mb-3 font-semibold text-gray-700">Dia 1: Prioridade em velocidade, visão e manobra.</p>
-                        <p class="text-xs italic bg-orange-50 p-3 rounded text-orange-900 border border-orange-100">Impacto: Domínio territorial rápido no dia 1.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ALTO COMANDO -->
-        <section id="altocomando" class="tab-content space-y-8">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-6 uppercase">Manual Operacional do Alto Comando</h2>
-                <p class="text-gray-600 text-sm mb-8 leading-relaxed">O Alto Comando é a ferramenta de elite para gestão estratégica, permitindo que a Legião Estrangeira mantenha a superioridade operacional mesmo durante a ausência do comandante. Abaixo estão detalhadas as funções avançadas de controlo.</p>
-                
-                <div class="space-y-6">
-                    <!-- Controlo de Fogo Detalhado -->
-                    <div class="p-6 bg-blue-50 border border-blue-200 rounded-xl shadow-sm">
-                        <h4 class="font-bold text-blue-900 text-sm uppercase mb-4 flex items-center gap-2">🛡️ Controlo de Fogo (Fire Control)</h4>
-                        <p class="text-xs text-blue-800 mb-4 leading-relaxed">Fundamental para unidades de longo alcance (Artilharia, Navios, Canhões Ferroviários) e Aeronaves. Esta função dita como as tuas forças reagem ao detetar o inimigo.</p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-                            <div class="bg-white p-3 rounded border border-blue-100">
-                                <strong class="text-blue-900 block mb-1 underline">Hold Fire (Cessar Fogo)</strong>
-                                <p class="text-gray-600">A unidade não disparará em nenhuma circunstância. Essencial para **emboscadas** onde não queres revelar a tua posição até que o inimigo esteja cercado.</p>
-                            </div>
-                            <div class="bg-white p-3 rounded border border-blue-100">
-                                <strong class="text-blue-900 block mb-1 underline">Return Fire (Retribuir Fogo)</strong>
-                                <p class="text-gray-600">A unidade só dispara se for atacada primeiro. Protege a tua posição sem iniciar conflitos indesejados com nações neutras.</p>
-                            </div>
-                            <div class="bg-white p-3 rounded border border-blue-100">
-                                <strong class="text-blue-900 block mb-1 underline">Fire at Will (Fogo Livre)</strong>
-                                <p class="text-gray-600">Comportamento padrão. Ataca automaticamente qualquer alvo hostil que entre no raio de alcance tático.</p>
-                            </div>
-                            <div class="bg-white p-3 rounded border border-blue-100">
-                                <strong class="text-blue-900 block mb-1 underline">Aggressive (Agressivo)</strong>
-                                <p class="text-gray-600">O modo mais letal. A unidade atacará e, se o alvo se mover para fora do alcance, a unidade **perseguirá** o inimigo automaticamente para continuar o bombardeamento.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Fila de Produção Avançada -->
-                        <div class="p-6 bg-green-50 border border-green-200 rounded-xl shadow-sm">
-                            <h4 class="font-bold text-green-900 text-sm uppercase mb-3">📋 Fila de Produção e Construção</h4>
-                            <div class="space-y-3 text-xs text-green-800 leading-relaxed">
-                                <p>Permite agendar até 5 itens (edifícios ou unidades) em sequência por cada província.</p>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Gestão de Recursos:</strong> A produção seguinte só retira recursos do stock no momento em que a anterior termina.</li>
-                                    <li><strong>Logística Noturna:</strong> Garante que as tuas fábricas nunca parem durante a noite, maximizando a produção diária.</li>
-                                    <li><strong>Otimização:</strong> Se a produção for cancelada, os recursos são devolvidos integralmente.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Waypoints e Rotas -->
-                        <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl shadow-sm">
-                            <h4 class="font-bold text-slate-900 text-sm uppercase mb-3">📍 Caminhos e Waypoints</h4>
-                            <div class="space-y-3 text-xs text-slate-800 leading-relaxed">
-                                <p>Cria rotas de movimento complexas em vez de simples linhas retas (utilizando a tecla Shift ou o botão 'Adicionar').</p>
-                                <ul class="list-disc pl-5 space-y-1">
-                                    <li><strong>Evitar Terreno:</strong> Define rotas que contornam montanhas ou pântanos para manter a velocidade máxima em estradas.</li>
-                                    <li><strong>Flanqueamento:</strong> Programa movimentos circulares para atacar o inimigo pelas costas sem necessidade de comandos manuais a meio da rota.</li>
-                                    <li><strong>Segurança:</strong> Evita passar por zonas de visão de países neutros para não revelar as tuas intenções.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Rally Points -->
-                        <div class="p-6 bg-purple-50 border border-purple-200 rounded-xl shadow-sm">
-                            <h4 class="font-bold text-purple-900 text-sm uppercase mb-3">🚩 Pontos de Reunião (Rally Points)</h4>
-                            <p class="text-xs text-purple-800 leading-relaxed">
-                                Configura uma província de destino para todas as unidades produzidas numa cidade específica. Ao saírem da fábrica, as tropas movem-se automaticamente para a linha da frente ou para um ponto de concentração de exército (Stacking Point).
-                            </p>
-                        </div>
-
-                        <!-- Inteligência Partilhada -->
-                        <div class="p-6 bg-amber-50 border border-amber-200 rounded-xl shadow-sm">
-                            <h4 class="font-bold text-amber-900 text-sm uppercase mb-3">🧠 Inteligência e Colaboração</h4>
-                            <div class="space-y-3 text-xs text-amber-800 leading-relaxed">
-                                <p><strong>Partilha de Mapa Automática:</strong> Garante transparência total com aliados de confiança sem trocas diplomáticas manuais constantes.</p>
-                                <p><strong>Imagens no Jornal:</strong> Capacidade de inserir imagens e gráficos nos artigos do jornal, melhorando a propaganda e coordenação da coligação.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center mt-6">
-                    <a href="https://wiki.callofwar.com/wiki/ARMY_CONTROLS" target="_blank" class="text-xs font-bold text-[#1a2a3a] underline hover:text-[#d4af37]">Ver Documentação Completa na Wiki</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ESPIONAGEM -->
-        <section id="espionagem" class="tab-content space-y-8">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-6 uppercase">Rede de Espionagem</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
-                    <div class="p-4 bg-blue-50 border border-blue-100 rounded-lg"><strong>Inteligência:</strong> Revela exércitos, chats e ordens inimigas.</div>
-                    <div class="p-4 bg-red-50 border border-red-100 rounded-lg"><strong>Sabotagem:</strong> Destrói edifícios e economia inimiga.</div>
-                    <div class="p-4 bg-green-50 border border-green-100 rounded-lg"><strong>Contraespionagem:</strong> Caça espiões infiltrados no teu território.</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- AVALIAÇÃO -->
-        <section id="quiz" class="tab-content">
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
-                <h2 class="text-2xl font-bold text-[#1a2a3a] border-l-4 border-[#d4af37] pl-4 mb-8 uppercase text-left">Centro de Avaliação</h2>
-                
-                <div id="quiz-selector" class="space-y-4 mb-8">
-                    <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Escolha a sua Missão:</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <button onclick="initQuiz('doutrinas')" class="p-6 bg-[#1a2a3a] text-white rounded-xl font-bold hover:bg-gray-800 transition-all shadow-md">1ª AVALIAÇÃO: DOUTRINAS</button>
-                        <button onclick="initQuiz('faq')" class="p-6 bg-[#d4af37] text-[#1a2a3a] rounded-xl font-bold hover:bg-yellow-500 transition-all shadow-md">2ª AVALIAÇÃO: JOGABILIDADE (FAQ)</button>
-                    </div>
-                </div>
-
-                <div id="quiz-display" class="hidden max-w-3xl mx-auto text-left">
-                    <div class="flex justify-between items-center mb-6">
-                        <span id="quiz-title" class="text-xs font-black uppercase text-[#d4af37] tracking-tighter"></span>
-                        <span id="quiz-progress" class="text-[10px] text-gray-400 font-bold"></span>
-                    </div>
-                    <div id="question-text" class="text-lg font-bold text-[#1a2a3a] mb-8 leading-tight"></div>
-                    <div id="options-container" class="grid grid-cols-1 gap-4"></div>
-                    
-                    <div id="feedback-container" class="hidden mt-6 p-5 rounded-xl border-2">
-                        <p id="feedback-status" class="font-bold text-lg mb-2"></p>
-                        <p id="feedback-text" class="text-sm text-gray-700 leading-relaxed"></p>
-                    </div>
-
-                    <button id="next-btn" onclick="nextQuestion()" class="hidden w-full mt-6 p-4 bg-[#1a2a3a] text-white rounded-xl font-bold hover:bg-gray-800 transition-all shadow-lg text-sm">PRÓXIMA QUESTÃO</button>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- Créditos conforme solicitado -->
-    <div class="fixed bottom-4 right-4 text-[10px] text-gray-400 font-medium z-[9999] opacity-70">
+    <!-- Assinatura Fixa -->
+    <footer class="fixed bottom-4 right-4 text-[10px] text-gray-400 font-bold z-[9999] opacity-70">
         Criado por Afonso Sousa (RisenWarlord)
-    </div>
+    </footer>
 
-    <script>
-        function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active-tab-btn');
-                btn.classList.add('text-gray-500', 'border-transparent');
-            });
-            
-            document.getElementById(tabId).classList.add('active');
-            const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.classList.remove('text-gray-500', 'border-transparent');
-            activeBtn.classList.add('active-tab-btn');
-            
-            if(tabId === 'quiz') resetQuizUI();
-        }
-
-        const quizDataDoutrinas = [
-            { q: "As unidades da doutrina Comintern têm como principal desvantagem:", a: ["Custo de produção elevado", "Dano reduzido", "Velocidade reduzida", "Menor alcance de visão"], c: 1, r: "Isso mesmo! Dano Reduzido (-10%). A Comintern compensa esta fraqueza com números massivos e manutenção baixa." },
-            { q: "Qual doutrina favorece estratégias de emboscadas e ataques rápidos?", a: ["Aliados", "Eixo", "Comintern", "Pan-Asiática"], c: 3, r: "Correto! A Pan-Asiática, com +20% de velocidade e bónus de terreno, é mestra em ataques surpresa." },
-            { q: "Qual doutrina se destaca pelo alcance de visão ampliado (+30%) de suas tropas?", a: ["Eixo", "Pan-Asiática", "Comintern", "Aliados"], c: 1, r: "Exato! A Pan-Asiática tem +30% de Alcance de Visão, essencial para deteção precoce." },
-            { q: "Se deseja focar em Força e Resistência (+15%) em vez de quantidade, qual é a melhor escolha?", a: ["Comintern", "Aliados", "Pan-Asiática", "Eixo"], c: 3, r: "Perfeito! A Doutrina do Eixo garante +15% em Vida e Dano para unidades robustas." },
-            { q: "A doutrina Pan-Asiática concede qual vantagem às suas unidades?", a: ["Maior pontos de vida", "Redução no custo", "Maior velocidade e bónus de terreno", "Maior dano"], c: 2, r: "Isso mesmo! Velocidade e Adaptabilidade compensam a sua menor resistência." }
-        ];
-
-        const quizDataFAQ = [
-            { q: "Como é processado o consumo de recursos para a manutenção das unidades?", a: ["Apenas em combate", "Consumo contínuo de Alimento, Petróleo e Ferro", "Gratuito no estrangeiro", "Pago apenas com dinheiro"], c: 1, r: "Isso mesmo! Alimento, Petróleo e Ferro são consumidos continuamente para manter a logística operativa." },
-            { q: "O que acontece se a reserva de recursos para manutenção chegar a zero?", a: ["As tropas desertam", "Perdem vida e moral gradualmente a cada hora", "O exército para de mover", "A produção acelera"], c: 1, r: "Degradação Constante. Sem alimento, combustível ou ferro, o exército sofre danos de atrito horários (1% HP)." },
-            { q: "Qual a vantagem tática de manter a Capital situada dentro das províncias 'Core' (iniciais)?", a: ["Aviões mais rápidos", "Garante moral a 100% onde a produção é máxima", "Produz ouro", "Impede espionagem"], c: 1, r: "Exato! Províncias principais com 100% de moral produzem o máximo de recursos possível." },
-            { q: "Como recuperam vida as unidades terrestres passivamente?", a: ["Recuperam 1% da vida na mudança de dia em solo pátrio", "Ao matar inimigos", "Em qualquer lugar", "Apenas com nível"], c: 0, r: "Isso mesmo! Ganhos de 1% de HP ocorrem na mudança de dia se estiveres em território seguro próprio." },
-            { q: "Diferença crucial entre 'Direito de Passagem' e 'Partilhar Mapa'?", a: ["Nenhuma", "Shared Map revela visão total das unidades", "Shared Map é para coligações", "Shared Map custa recursos"], c: 1, r: "Correto! Partilhar Mapa é transparência total sobre os movimentos do aliado." },
-            { q: "Abaixo de que moral uma província corre risco de revolta na mudança de dia?", a: ["Abaixo de 50%", "Abaixo de 25% de moral", "Apenas com 0%", "Sem bunker"], c: 1, r: "Limiar Crítico. Aos 25%, a insatisfação atinge o ponto de ruptura; garante guarnição militar forte." },
-            { q: "Como é que o empilhamento excessivo (Stacking) afeta a eficiência de ataque?", a: ["Bónus de dano infinito", "Existe um limite onde o dano proporcional reduz", "Só afeta a velocidade", "Aumenta vida"], c: 1, r: "Eficiência Decrescente. Empilhar demasiadas unidades reduz o dano proporcional de cada uma para manter o equilíbrio estratégico (SBOR)." },
-            { q: "Como é que o estado de 'Embargo Comercial' afeta a sua interação?", a: ["Impede compra/venda no mercado", "Rouba recursos", "Impede voo", "Oculta nome"], c: 0, r: "Sanção Económica. Bloqueia qualquer troca financeira e de recursos no mercado livre com o adversário." },
-            { q: "Quais unidades detetam unidades furtivas (ex: Milícia em cidades ou Comandos)?", a: ["Tanques Pesados", "Qualquer infantaria", "Carros Blindados e Intercetores", "Armas nucleares"], c: 2, r: "Isso mesmo! Carros Blindados e Intercetores são os olhos avançados da Legião." },
-            { q: "Qual é o efeito do 'Pânico de Guerra' na moral da população?", a: ["Mais munições", "Penalização baseada no número de guerras ativas", "Dobra velocidade", "Nenhum efeito"], c: 1, r: "Fadiga Social. Conflitos excessivos destroem a estabilidade e moral interna da nação." }
-        ];
-
-        let currentQuizSet = [];
-        let currentQIndex = 0;
-        let score = 0;
-        let activeQuizName = "";
-
-        function resetQuizUI() {
-            const selector = document.getElementById("quiz-selector");
-            const display = document.getElementById("quiz-display");
-            if (selector && display) {
-                selector.classList.remove("hidden");
-                display.classList.add("hidden");
-            }
-        }
-
-        function initQuiz(type) {
-            currentQuizSet = type === 'doutrinas' ? quizDataDoutrinas : quizDataFAQ;
-            activeQuizName = type === 'doutrinas' ? "Doutrinas de Guerra" : "Jogabilidade & FAQ";
-            currentQIndex = 0;
-            score = 0;
-            document.getElementById("quiz-selector").classList.add("hidden");
-            document.getElementById("quiz-display").classList.remove("hidden");
-            document.getElementById("quiz-title").innerText = activeQuizName;
-            showQuestion();
-        }
-
-        function showQuestion() {
-            const container = document.getElementById("options-container");
-            const progress = document.getElementById("quiz-progress");
-            const question = document.getElementById("question-text");
-            const feedback = document.getElementById("feedback-container");
-            const nextBtn = document.getElementById("next-btn");
-            feedback.classList.add("hidden");
-            nextBtn.classList.add("hidden");
-            const q = currentQuizSet[currentQIndex];
-            progress.innerText = `Missão ${currentQIndex + 1} / ${currentQuizSet.length}`;
-            question.innerText = q.q;
-            container.innerHTML = "";
-            q.a.forEach((opt, index) => {
-                const btn = document.createElement("button");
-                btn.className = "option-btn w-full text-left p-5 rounded-xl border-gray-100 bg-white hover:bg-gray-50 font-semibold shadow-sm text-sm";
-                btn.innerText = opt;
-                btn.onclick = () => selectOption(index, btn);
-                container.appendChild(btn);
-            });
-        }
-
-        function selectOption(index, clickedBtn) {
-            const q = currentQuizSet[currentQIndex];
-            const buttons = document.querySelectorAll('.option-btn');
-            const feedback = document.getElementById("feedback-container");
-            const status = document.getElementById("feedback-status");
-            const text = document.getElementById("feedback-text");
-            const nextBtn = document.getElementById("next-btn");
-            buttons.forEach(btn => {
-                btn.onclick = null;
-                btn.classList.add('option-disabled');
-            });
-            if (index === q.c) {
-                score++;
-                clickedBtn.classList.add('option-correct');
-                status.innerText = "✓ ISSO MESMO!";
-                status.className = "font-bold text-lg mb-2 text-green-600";
-                feedback.className = "mt-6 p-5 rounded-xl border-2 border-green-200 bg-green-50 block";
-            } else {
-                clickedBtn.classList.add('option-wrong');
-                buttons[q.c].classList.add('option-correct');
-                status.innerText = "✗ NÃO É BEM ASSIM...";
-                status.className = "font-bold text-lg mb-2 text-red-600";
-                feedback.className = "mt-6 p-5 rounded-xl border-2 border-red-200 bg-red-50 block";
-            }
-            text.innerText = q.r;
-            nextBtn.classList.remove("hidden");
-        }
-
-        function nextQuestion() {
-            currentQIndex++;
-            if (currentQIndex < currentQuizSet.length) showQuestion();
-            else showResult();
-        }
-
-        function showResult() {
-            const display = document.getElementById("quiz-display");
-            let rank = score >= currentQuizSet.length * 0.8 ? "LENDA DA LEGIÃO" : score >= currentQuizSet.length * 0.5 ? "VETERANO" : "RECRUTA";
-            display.innerHTML = `
-                <div class="text-center py-10">
-                    <h3 class="text-3xl font-bold mb-2 uppercase text-[#1a2a3a]">Relatório Final</h3>
-                    <div class="text-7xl font-bold text-[#d4af37] mb-6">${score} / ${currentQuizSet.length}</div>
-                    <p class="text-lg text-gray-600 mb-8 uppercase font-bold tracking-widest">Patente: ${rank}</p>
-                    <button onclick="location.reload()" class="px-10 py-4 bg-[#1a2a3a] text-white rounded-xl font-bold uppercase tracking-widest hover:bg-[#2c3e50] transition-colors shadow-lg">Menu Inicial</button>
-                </div>
-            `;
-        }
-    </script>
 </body>
 </html>
