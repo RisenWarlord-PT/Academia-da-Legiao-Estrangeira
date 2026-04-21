@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doutrinas - Academia da Legião Estrangeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .nav-link { transition: all 0.2s; border-bottom: 3px solid transparent; }
+        .nav-link:hover { background-color: #f1f5f9; color: #1a2a3a; }
+        .active-link { color: #1a2a3a !important; border-bottom-color: #d4af37 !important; background-color: #f1f5f9; }
+        .doctrine-card { transition: transform 0.2s; }
+        .doctrine-card:hover { transform: translateY(-4px); }
+        .section-title-bar { border-left: 4px solid #d4af37; padding-left: 16px; margin-bottom: 24px; }
+    </style>
+</head>
+<body class="text-gray-800 relative min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-[#1a2a3a] text-white py-8 border-b-4 border-[#d4af37] text-center px-4">
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tighter">ACADEMIA DA LEGIÃO ESTRANGEIRA</h1>
+    </header>
+
+    <!-- Navegação -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md overflow-x-auto flex border-b border-gray-200">
+        <a href="index.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Início</a>
+        <a href="doutrinas.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-center active-link">Doutrinas</a>
+        <a href="combate.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Combate</a>
+        <a href="unidades.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Unidades</a>
+        <a href="pesquisa.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Pesquisa</a>
+        <a href="altocomando.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Alto Comando</a>
+        <a href="espionagem.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Espionagem</a>
+        <a href="quiz.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Avaliação</a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-8 pb-24">
+        
+        <!-- INTRODUÇÃO ÀS DOUTRINAS -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8">
+            <div class="section-title-bar">
+                <h2 class="text-2xl font-extrabold text-[#1a2a3a] uppercase tracking-tight">INTRODUÇÃO ÀS DOUTRINAS</h2>
+            </div>
+            <p class="text-gray-600 leading-relaxed font-medium">
+                As doutrinas em Call of War são pilares estratégicos que definem o comportamento das nações no campo de batalha. Cada doutrina apresenta vantagens e desvantagens que moldam o estilo de jogo, desde a composição dos exércitos até a forma de administrar recursos.
+            </p>
+        </div>
+
+        <!-- FILOSOFIA E IMPACTO TÁTICO -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8">
+            <div class="section-title-bar">
+                <h2 class="text-2xl font-extrabold text-[#1a2a3a] uppercase tracking-tight">FILOSOFIA E IMPACTO TÁTICO</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Eixo -->
+                <div class="p-6 bg-red-50 rounded-xl border border-red-100 shadow-sm">
+                    <h4 class="font-bold text-red-900 uppercase text-sm mb-2">1. EIXO (PODER)</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-3 font-medium">Foca na força bruta e na resistência. Suas unidades possuem mais pontos de vida e causam maior dano, mas são mais caras para produzir. Ideal para quem prefere ataques diretos e exércitos robustos.</p>
+                    <p class="text-[11px] font-bold text-red-800 border-t border-red-200 pt-2 italic">Impacto nas Unidades: Foco no fortalecimento individual com bónus de vida e dano. Contudo, o custo elevado limita a quantidade operativa.</p>
+                </div>
+
+                <!-- Aliados -->
+                <div class="p-6 bg-blue-50 rounded-xl border border-blue-100 shadow-sm">
+                    <h4 class="font-bold text-blue-900 uppercase text-sm mb-2">2. ALIADOS (OTIMIZAÇÃO)</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-3 font-medium">Priorizam eficiência e rapidez. Suas unidades são produzidas e atualizadas mais rapidamente e com menor custo, permitindo uma estratégia flexível e ágil. Perfeito para o domínio pela superioridade logística.</p>
+                    <p class="text-[11px] font-bold text-blue-800 border-t border-blue-200 pt-2 italic">Impacto nas Unidades: Otimização para produção e atualização rápida, criando exércitos modernos em menor tempo, apesar da velocidade de movimento reduzida.</p>
+                </div>
+
+                <!-- Comintern -->
+                <div class="p-6 bg-purple-50 rounded-xl border border-purple-100 shadow-sm">
+                    <h4 class="font-bold text-purple-900 uppercase text-sm mb-2">3. COMINTERN (QUANTIDADE)</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-3 font-medium">Enfatiza números e sustentabilidade. Com custos de produção e manutenção reduzidos, permite a criação de exércitos massivos, compensando a desvantagem de dano individual reduzido.</p>
+                    <p class="text-[11px] font-bold text-purple-800 border-t border-purple-200 pt-2 italic">Impacto nas Unidades: Favorece o volume em detrimento do poder individual. A economia de manutenção permite sustentar frentes de guerra vastas.</p>
+                </div>
+
+                <!-- Pan-Asiática -->
+                <div class="p-6 bg-orange-50 rounded-xl border border-orange-100 shadow-sm">
+                    <h4 class="font-bold text-orange-900 uppercase text-sm mb-2">4. PAN-ASIÁTICA (SURPRESA)</h4>
+                    <p class="text-sm text-gray-700 leading-relaxed mb-3 font-medium">Baseia-se na mobilidade e adaptabilidade. Suas unidades são mais rápidas, têm maior alcance de visão e bônus de terreno. Ideal para ataques rápidos e controle territorial agressivo.</p>
+                    <p class="text-[11px] font-bold text-orange-800 border-t border-orange-200 pt-2 italic">Impacto nas Unidades: Prioridade absoluta na mobilidade e adaptação ao terreno. As unidades são ágeis e videntes, embora mais frágeis em combate direto.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARDS DE REFERÊNCIA DE UNIDADES -->
+        <h2 class="text-2xl font-extrabold text-[#1a2a3a] uppercase tracking-tight mb-8">CARDS DE REFERÊNCIA DE UNIDADES</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Eixo -->
+            <div class="doctrine-card bg-white rounded-xl shadow-lg border-t-4 border-[#c62828] flex flex-col">
+                <div class="bg-[#c62828] text-white p-3 text-center font-extrabold tracking-widest uppercase text-sm">EIXO</div>
+                <div class="p-4 space-y-3 flex-grow text-[11px] font-bold">
+                    <div class="flex justify-between border-b pb-1"><span>Pontos de Vida</span> <span class="text-green-600">+15%</span></div>
+                    <div class="flex justify-between border-b pb-1"><span>Dano</span> <span class="text-green-600">+15%</span></div>
+                    <div class="flex justify-between border-b pb-1"><span>Custo Produção</span> <span class="text-red-600">+10%</span></div>
+                    <div class="mt-4">
+                        <h5 class="text-[10px] font-black text-gray-400 uppercase mb-2">UNIDADES PRIORITÁRIAS</h5>
+                        <ul class="space-y-1 text-gray-600 italic">
+                            <li>• Carro Blindado</li>
+                            <li>• Tanque Médio</li>
+                            <li>• Tanque Pesado (M6/Tiger)</li>
+                            <li>• Canhão Ferroviário</li>
+                            <li>• Foguete / Foguete V2</li>
+                            <li>• Bombardeiro de Ataque</li>
+                            <li>• Submarino</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aliados -->
+            <div class="doctrine-card bg-white rounded-xl shadow-lg border-t-4 border-[#1565c0] flex flex-col">
+                <div class="bg-[#1565c0] text-white p-3 text-center font-extrabold tracking-widest uppercase text-sm">ALIADOS</div>
+                <div class="p-4 space-y-3 flex-grow text-[11px] font-bold">
+                    <div class="flex justify-between border-b pb-1"><span>Tempo Produção</span> <span class="text-green-600">-30%</span></div>
+                    <div class="flex justify-between border-b pb-1"><span>Custo/Tempo Pesq.</span> <span class="text-green-600">-25%</span></div>
+                    <div class="flex justify-between border-b pb-1"><span>Atualização</span> <span class="text-green-600">-20%</span></div>
+                    <div class="flex justify-between border-b pb-1"><span>Velocidade</span> <span class="text-red-600">-10%</span></div>
+                    <div class="mt-4">
+                        <h5 class="text-[10px] font-black text-gray-400 uppercase mb-2">UNIDADES PRIORITÁRIAS</h5>
+                        <ul class="space-y-1 text-gray-600 italic">
+                            <li>• Para-infantaria</li>
+                            <li>• Bomb. Estratégico</li>
+                            <li>• Porta-aviões</li>
+                            <li>• Destróier</li>
+                            <li>• Navio de Transporte</li>
+                            <li>• Míssil</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comintern -->
+            <div class="doctrine-card bg-white rounded-xl shadow-lg border-t-4 border-[#7b1fa2] flex flex-col">
+                <div class="bg-[#7b1fa2] text-white p-3 text-center font-extrabold tracking-widest uppercase text-sm">COMINTERN</div>
+                <div class="p-4 space-y-3 flex-grow text-[11px] font-bold">
+                    <div class="flex justify-between border-b pb-1"><span>Custo Produção</span> <span class="text-green-600">-15%</span></div>
+                    <div class="flex justify-between border-b pb-1"><span>Custo Manutenção</span> <span class="text-green-600">-30%</span></div>
+                    <div class="flex justify-between border-b pb-1"><span>Dano</span> <span class="text-red-600">-10%</span></div>
+                    <div class="mt-4">
+                        <h5 class="text-[10px] font-black text-gray-400 uppercase mb-2">UNIDADES PRIORITÁRIAS</h5>
+                        <ul class="space-y-1 text-gray-600 italic">
+                            <li>• Infantaria</li>
+                            <li>• Antitanque</li>
+                            <li>• Artilharia</li>
+                            <li>• Artilharia Foguetes</li>
+                            <li>• Tanque Pesado</li>
+                            <li>• Couraçado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pan-Asiática -->
+            <div class="doctrine-card bg-white rounded-xl shadow-lg border-t-4 border-[#e65100] flex flex-col">
+                <div class="bg-[#e65100] text-white p-3 text-center font-extrabold tracking-widest uppercase text-sm">PAN-ASIÁTICA</div>
+                <div class="p-4 space-y-3 flex-grow text-[11px] font-bold">
+                    <div class="flex justify-between border-b pb-1"><span>Velocidade</span> <span class="text-green-600">+20%</span></div>
+                    <div class="flex justify-between border-b pb-1"><span>Alcance de Visão</span> <span class="text-green-600">+30%</span></div>
+                    <div class="flex justify-between border-b pb-1"><span>Bónus de Terreno</span> <span class="text-green-600">+20%</span></div>
+                    <div class="flex justify-between border-b pb-1"><span>Pontos de Vida</span> <span class="text-red-600">-10%</span></div>
+                    <div class="mt-4">
+                        <h5 class="text-[10px] font-black text-gray-400 uppercase mb-2">UNIDADES PRIORITÁRIAS</h5>
+                        <ul class="space-y-1 text-gray-600 italic">
+                            <li>• Carro Blindado</li>
+                            <li>• Tanque Leve</li>
+                            <li>• Intercetor</li>
+                            <li>• Bombardeiro Naval</li>
+                            <li>• Couraçado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFLUÊNCIA NA ECONOMIA -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8">
+            <div class="section-title-bar">
+                <h2 class="text-2xl font-extrabold text-[#1a2a3a] uppercase tracking-tight">INFLUÊNCIA NA ECONOMIA</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-bold text-gray-700">
+                <div class="p-6 bg-gray-50 border rounded-lg shadow-sm">
+                    <strong>Eixo:</strong> Altos custos de produção demandam economia robusta, focando em qualidade.
+                </div>
+                <div class="p-6 bg-gray-50 border rounded-lg shadow-sm">
+                    <strong>Aliados:</strong> Custos reduzidos em pesquisa/produção permitem avanços constantes.
+                </div>
+                <div class="p-6 bg-gray-50 border rounded-lg shadow-sm">
+                    <strong>Comintern:</strong> Foco em sustentação de grandes exércitos e expansão territorial.
+                </div>
+                <div class="p-6 bg-gray-50 border rounded-lg shadow-sm">
+                    <strong>Pan-Asiática:</strong> Economia menos dependente de manutenção direta devido a bónus situacionais.
+                </div>
+            </div>
+        </div>
+
+        <!-- BASE DE CONHECIMENTO EXTERNA -->
+        <div class="bg-[#1a2a3a] text-white p-10 rounded-2xl shadow-xl text-center">
+            <h4 class="font-black text-sm uppercase mb-4 text-[#d4af37] tracking-widest">BASE DE CONHECIMENTO EXTERNA</h4>
+            <p class="text-xs mb-8 opacity-80 font-bold max-w-2xl mx-auto leading-relaxed">
+                Para estatísticas detalhadas e dados técnicos aprofundados sobre cada unidade, consulta a documentação oficial.
+            </p>
+            <a href="https://wiki.callofwar.com/wiki/DOCTRINES" target="_blank" class="inline-block px-12 py-4 bg-[#d4af37] text-[#1a2a3a] rounded-lg font-black uppercase tracking-widest hover:bg-yellow-500 transition-all shadow-lg text-xs">
+                WIKI OFICIAL DE DOUTRINAS
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="fixed bottom-4 right-4 text-[10px] text-gray-400 font-bold z-[9999] opacity-70">
+        Criado por Afonso Sousa (RisenWarlord)
+    </footer>
+
+</body>
+</html>
