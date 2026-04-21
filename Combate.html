@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combate - Academia da Legião Estrangeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .nav-link { transition: all 0.2s; border-bottom: 3px solid transparent; }
+        .nav-link:hover { background-color: #f1f5f9; color: #1a2a3a; }
+        .active-link { color: #1a2a3a !important; border-bottom-color: #d4af37 !important; background-color: #f1f5f9; }
+        .combat-card { transition: transform 0.2s; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .combat-card:hover { transform: translateY(-2px); }
+        .section-title-bar { border-left: 4px solid #d4af37; padding-left: 16px; margin-bottom: 24px; }
+    </style>
+</head>
+<body class="text-gray-800 relative min-h-screen">
+
+    <!-- Header com Logótipo Oficial -->
+    <header class="bg-[#1a2a3a] text-white py-8 border-b-4 border-[#d4af37] text-center px-4">
+        <div class="flex justify-center mb-4">
+            <img src="Academia Legião Estrangeira.jpg" alt="Logótipo Academia Legião Estrangeira" class="h-32 w-32 rounded-full border-2 border-[#d4af37] object-cover shadow-lg">
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tighter">ACADEMIA DA LEGIÃO ESTRANGEIRA</h1>
+        <p class="italic text-[#d4af37] mt-2 text-sm md:text-base font-medium">"Legio Patria Nostra · Estratégia · Força · Coordenação"</p>
+    </header>
+
+    <!-- Navegação Modular -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md overflow-x-auto flex border-b border-gray-200">
+        <a href="index.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Início</a>
+        <a href="doutrinas.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Doutrinas</a>
+        <a href="combate.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-center active-link">Combate</a>
+        <a href="unidades.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Unidades</a>
+        <a href="pesquisa.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Pesquisa</a>
+        <a href="altocomando.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Alto Comando</a>
+        <a href="espionagem.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Espionagem</a>
+        <a href="quiz.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Avaliação</a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-8 pb-24">
+        
+        <!-- INTELIGÊNCIA DE COMBATE AVANÇADA -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8">
+            <div class="section-title-bar">
+                <h2 class="text-2xl font-extrabold text-[#1a2a3a] uppercase tracking-tight">INTELIGÊNCIA DE COMBATE AVANÇADA</h2>
+            </div>
+            <p class="text-gray-600 leading-relaxed font-medium mb-8">
+                Dominar o combate exige entender a matemática por trás da troca de tiros. Esta secção detalha as mecânicas profundas do motor de jogo que ditam a sobrevivência das tuas divisões.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <!-- Postura de Ataque -->
+                <div class="combat-card p-6 bg-blue-50 border border-blue-200 rounded-xl">
+                    <h4 class="font-black text-blue-900 uppercase text-sm mb-4 flex items-center gap-2">⚔️ POSTURA DE ATAQUE</h4>
+                    <div class="space-y-4 text-xs leading-relaxed text-blue-900 font-bold">
+                        <p><strong>Vantagens:</strong> Iniciativa estratégica (escolha do momento e local), capacidade de cerco e bónus de movimento rápido em infraestrutura intacta.</p>
+                        <p><strong>Desvantagens:</strong> Exposição ao fogo de retribuição e penalização de moral ao capturar províncias distantes.</p>
+                        <p><strong>Unidades de Choque (como por exemplo):</strong> Tanque Médio, Tanque Leve, Infantaria Motorizada, Infantaria Mecanizada e Comandos.</p>
+                    </div>
+                </div>
+
+                <!-- Postura de Defesa -->
+                <div class="combat-card p-6 bg-green-50 border border-green-200 rounded-xl">
+                    <h4 class="font-black text-green-900 uppercase text-sm mb-4 flex items-center gap-2">🛡️ POSTURA DE DEFESA</h4>
+                    <div class="space-y-4 text-xs leading-relaxed text-green-900 font-bold">
+                        <p><strong>Vantagens:</strong> Bónus massivos de Bunker (até 90% redução de dano), entrincheiramento e bónus de terreno defensivo (Cidades/Florestas).</p>
+                        <p><strong>Desvantagens:</strong> Perda de iniciativa; vulnerabilidade a bombardeamentos prolongados de artilharia e mísseis.</p>
+                        <p><strong>Unidades de Sustentação (como por exemplo):</strong> Antitanque, Antiaéreo, Milícia e Destruidor de Tanques.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <!-- SBOR -->
+                <div class="combat-card p-6 bg-red-50 border border-red-100 rounded-xl">
+                    <h4 class="font-black text-red-900 uppercase text-sm mb-4 flex items-center gap-2 font-bold">⚖️ DEFINIÇÃO: SBOR</h4>
+                    <div class="space-y-4 text-xs leading-relaxed text-red-900 font-bold">
+                        <p><strong>Strength Based Overkill Reduction</strong> (Redução de Poder Baseada no Tamanho): É a mecânica que limita o dano total de pilhas (stacks) gigantes.</p>
+                        <p><strong>A Regra dos 10:</strong> Apenas as 10 unidades com os melhores valores ofensivos contribuem com o seu dano total. A partir da 11ª unidade, o poder de ataque individual cai drasticamente.</p>
+                        <p><strong>Escudo de HP:</strong> Unidades além do limite de 10 não atacam com eficiência, mas absorvem dano. São úteis apenas como "carne para canhão" para proteger as unidades de elite da pilha.</p>
+                    </div>
+                </div>
+
+                <!-- Patrulha -->
+                <div class="combat-card p-6 bg-blue-50 border border-blue-200 rounded-xl">
+                    <h4 class="font-black text-blue-900 uppercase text-sm mb-4 flex items-center gap-2 font-bold">✈️ MECÂNICA DE PATRULHA VS ATAQUE</h4>
+                    <div class="space-y-4 text-xs leading-relaxed text-blue-900 font-bold">
+                        <p><strong>Ciclo de 15 Minutos:</strong> Aviões em patrulha aplicam o seu dano a cada 15 minutos (25% do dano horário por tick). Isto permite reagir mais rápido a movimentos inimigos.</p>
+                        <p><strong>Dano de Área:</strong> A patrulha divide o dano por todas as pilhas inimigas no círculo. Se queres foco total num alvo, usa o comando "Atacar", que aplica 100% do dano mas tem um ciclo de 1 hora.</p>
+                        <p><strong>Deteção:</strong> Apenas aviões em patrulha revelam unidades furtivas com eficácia constante.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Defesa Antiaérea -->
+            <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl mb-8 shadow-sm">
+                <h4 class="font-black text-[#1a2a3a] uppercase text-sm mb-6 flex items-center gap-2 font-bold">🛡️ DEFESA ANTIAÉREA: PONTO VS ÁREA</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs leading-relaxed font-bold">
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <strong class="text-[#1a2a3a] block mb-2 underline uppercase tracking-tight">DEFESA DE PONTO (POINT DEFENSE):</strong>
+                        <p class="text-gray-600 font-bold">Quando um avião ataca diretamente uma pilha, a Defesa AA dessa pilha retribui o dano imediatamente. É a forma mais eficaz de abater bombardeiros.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <strong class="text-[#1a2a3a] block mb-2 underline uppercase tracking-tight">DEFESA DE ÁREA (ENVELOPE):</strong>
+                        <p class="text-gray-600 font-bold">Unidades AA protegem um raio ao seu redor. Aviões que voam sobre este raio (mesmo sem atacar a pilha AA) recebem dano automático a cada tick.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blindagem -->
+            <div class="p-6 bg-blue-50 border border-blue-200 rounded-xl mb-8 shadow-sm">
+                <h4 class="font-black text-blue-900 uppercase text-sm mb-6 flex items-center gap-2 font-bold">🛡️ CLASSES DE BLINDAGEM E FATOR DE CONDIÇÃO</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs leading-relaxed font-bold">
+                    <div class="bg-white p-6 rounded-lg border border-blue-200 shadow-sm">
+                        <strong class="block mb-2 underline uppercase tracking-tight text-blue-900">DISTRIBUIÇÃO DE DANO:</strong>
+                        <p class="text-gray-700 font-bold">Numa pilha mista (ex: Infantaria + Tanques), o dano recebido é distribuído proporcionalmente ao HP e ao tipo de blindagem. Ter infantaria "barata" numa pilha de tanques ajuda a absorver o dano anti-blindado inimigo.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg border border-blue-200 shadow-sm">
+                        <strong class="block mb-2 underline uppercase tracking-tight text-blue-900">PERFORMANCE POR HP:</strong>
+                        <p class="text-gray-700 font-bold">Matematicamente, <strong>Dano Real = Dano Base * (% de Condição)</strong>. Uma unidade com 20% de vida é virtualmente inútil no ataque, servindo apenas para retardar o inimigo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Protocolos -->
+            <div class="p-6 bg-amber-50 border border-amber-100 rounded-xl shadow-sm">
+                <h4 class="font-black text-amber-900 uppercase text-sm mb-4 flex items-center gap-2 font-bold underline">🏳️ PROTOCOLOS DIPLOMÁTICOS</h4>
+                <div class="space-y-3 text-xs leading-relaxed text-amber-900 font-bold">
+                    <p><strong>Penalização de Surpresa:</strong> Atacar sem declarar guerra causa uma queda na popularidade global (Moral IA). Isso faz com que países controlados pelo computador te embarguem ou ataquem preventivamente.</p>
+                    <p><strong>Zonas de Controlo:</strong> Províncias desprotegidas são capturadas instantaneamente se qualquer unidade terrestre tocar no seu centro geográfico.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://wiki.callofwar.com/wiki/COMBAT" target="_blank" class="text-xs font-black text-[#1a2a3a] underline hover:text-[#d4af37] uppercase tracking-widest">
+                    Consultar Manual de Combate Completo na Wiki Oficial
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="fixed bottom-4 right-4 text-[10px] text-gray-400 font-bold z-[9999] opacity-70">
+        Criado por Afonso Sousa (RisenWarlord)
+    </footer>
+
+</body>
+</html>
