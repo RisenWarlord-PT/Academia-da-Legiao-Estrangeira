@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação - Academia da Legião Estrangeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .nav-link { transition: all 0.2s; border-bottom: 3px solid transparent; }
+        .nav-link:hover { background-color: #f1f5f9; color: #1a2a3a; }
+        .active-link { color: #1a2a3a !important; border-bottom-color: #d4af37 !important; background-color: #f1f5f9; }
+        .option-btn { transition: all 0.2s; border-width: 2px; }
+        .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .option-wrong { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        .option-disabled { cursor: not-allowed; opacity: 0.7; }
+        .section-title-bar { border-left: 4px solid #d4af37; padding-left: 16px; margin-bottom: 24px; }
+    </style>
+</head>
+<body class="text-gray-800 relative min-h-screen font-bold">
+
+    <!-- Header com Logótipo Oficial -->
+    <header class="bg-[#1a2a3a] text-white py-8 border-b-4 border-[#d4af37] text-center px-4">
+        <div class="flex justify-center mb-4">
+            <img src="Academia Legião Estrangeira.jpg" alt="Logótipo Academia Legião Estrangeira" class="h-32 w-32 rounded-full border-2 border-[#d4af37] object-cover shadow-lg">
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tighter">ACADEMIA DA LEGIÃO ESTRANGEIRA</h1>
+        <p class="italic text-[#d4af37] mt-2 text-sm md:text-base font-medium">"Legio Patria Nostra · Estratégia · Força · Coordenação"</p>
+    </header>
+
+    <!-- Navegação Modular -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md overflow-x-auto flex border-b border-gray-200">
+        <a href="index.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Início</a>
+        <a href="doutrinas.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Doutrinas</a>
+        <a href="combate.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Combate</a>
+        <a href="unidades.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Unidades</a>
+        <a href="pesquisa.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Pesquisa</a>
+        <a href="altocomando.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Alto Comando</a>
+        <a href="espionagem.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Espionagem</a>
+        <a href="quiz.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-center active-link">Avaliação</a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-8 pb-24">
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
+            <div class="section-title-bar text-left">
+                <h2 class="text-2xl font-extrabold text-[#1a2a3a] uppercase tracking-tight">CENTRO DE AVALIAÇÃO</h2>
+            </div>
+
+            <!-- Seletor de Quiz -->
+            <div id="quiz-selector" class="space-y-6 mb-8">
+                <p class="text-sm font-bold text-gray-500 uppercase tracking-widest">Escolha a sua Missão de Treino:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <button onclick="initQuiz('doutrinas')" class="p-8 bg-[#1a2a3a] text-white rounded-2xl font-black hover:bg-gray-800 transition-all shadow-lg uppercase tracking-wider">1ª AVALIAÇÃO: DOUTRINAS</button>
+                    <button onclick="initQuiz('faq')" class="p-8 bg-[#d4af37] text-[#1a2a3a] rounded-2xl font-black hover:bg-yellow-500 transition-all shadow-lg uppercase tracking-wider">2ª AVALIAÇÃO: JOGABILIDADE</button>
+                </div>
+            </div>
+
+            <!-- Ecrã do Quiz -->
+            <div id="quiz-display" class="hidden max-w-3xl mx-auto text-left py-4">
+                <div class="flex justify-between items-center mb-8">
+                    <span id="quiz-title" class="text-xs font-black uppercase text-[#d4af37] tracking-tighter bg-[#1a2a3a] px-3 py-1 rounded"></span>
+                    <span id="quiz-progress" class="text-xs text-gray-400 font-black"></span>
+                </div>
+
+                <h3 id="question-text" class="text-xl font-black text-[#1a2a3a] mb-10 leading-tight"></h3>
+                
+                <div id="options-container" class="grid grid-cols-1 gap-4"></div>
+                
+                <!-- Feedback -->
+                <div id="feedback-container" class="hidden mt-8 p-6 rounded-2xl border-2 font-bold">
+                    <p id="feedback-status" class="font-black text-lg mb-2 uppercase"></p>
+                    <p id="feedback-text" class="text-sm text-gray-700 leading-relaxed"></p>
+                </div>
+
+                <button id="next-btn" onclick="nextQuestion()" class="hidden w-full mt-8 p-5 bg-[#1a2a3a] text-white rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-gray-800 transition-all">
+                    PRÓXIMA QUESTÃO
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const quizDataDoutrinas = [
+            { q: "Qual doutrina favorece a guerra de manobra e surpresa através de visão superior e velocidade extrema?", a: ["Aliados", "Eixo", "Comintern", "Pan-Asiática"], c: 3, r: "Exato! A Pan-Asiática garante +30% de visão e +20% de velocidade." },
+            { q: "Qual é o principal bónus de combate das unidades da Doutrina do Eixo?", a: ["+15% em Vida e Dano", "+25% em Velocidade", "Redução de custo", "Deteção de submarinos"], c: 0, r: "Correto! O Eixo foca na qualidade de elite, garantindo 15% extra de resistência e poder de fogo." },
+            { q: "Como é que a Doutrina Comintern compensa o facto de as suas unidades terem -10% de dano?", a: ["Com aviões mais rápidos", "Com números massivos e manutenção 30% mais barata", "Com bónus de terreno", "Com pesquisa instantânea"], c: 1, r: "Isso mesmo! A alma da Comintern é a massa logística: unidades baratas e fáceis de manter." },
+            { q: "A Doutrina dos Aliados destaca-se tecnologicamente por qual vantagem?", a: ["Tanques invisíveis", "Pesquisa 25% mais rápida e barata", "Mísseis nucleares no Dia 1", "Dano naval triplicado"], c: 1, r: "Perfeito! A superioridade técnica dos Aliados permite modernizar o exército muito antes dos rivais." },
+            { q: "Qual é a principal característica tática das unidades Pan-Asiáticas em terrenos favoráveis?", a: ["Não consomem comida", "Bónus de +20% de força no terreno", "Constroem bunkers grátis", "Têm alcance infinito"], c: 1, r: "Correto! A adaptabilidade ao terreno é um dos pilares da Pan-Asiática." },
+            { q: "Qual é a penalização económica imposta à Doutrina do Eixo?", a: ["Menos recursos iniciais", "Produção 10% mais cara", "Pesquisa bloqueada", "Sem mercado comercial"], c: 1, r: "Exato. A qualidade superior das tropas do Eixo reflete-se num custo de produção elevado." },
+            { q: "Qual doutrina tem como unidade prioritária o Tanque Pesado Tiger (M6)?", a: ["Comintern", "Aliados", "Pan-Asiática", "Eixo"], c: 3, r: "Correto! O Eixo prioriza o poder bruto dos seus tanques pesados de elite." },
+            { q: "Qual doutrina foca na superioridade logística através de Paraquedistas e Bombardeiros Estratégicos?", a: ["Pan-Asiática", "Aliados", "Eixo", "Comintern"], c: 1, r: "Isso mesmo! Os Aliados focam na eficiência operacional e guerra aérea estratégica." },
+            { q: "A unidade 'Couraçado Yamato' é uma prioridade de qual doutrina?", a: ["Pan-Asiática", "Eixo", "Aliados", "Comintern"], c: 0, r: "Exato! A Pan-Asiática domina os mares com unidades navais rápidas e poderosas." },
+            { q: "Qual doutrina permite manter frentes de guerra vastas devido a -30% de custo de manutenção?", a: ["Eixo", "Comintern", "Aliados", "Pan-Asiática"], c: 1, r: "Correto! A Comintern é a única capaz de sustentar exércitos gigantescos sem falir a economia." }
+        ];
+
+        const quizDataFAQ = [
+            { q: "Como é processado o consumo de recursos para a manutenção das unidades?", a: ["Apenas em combate", "Consumo contínuo de Alimento, Petróleo e Ferro", "Gratuito no estrangeiro", "Pago apenas com saldo negativo"], c: 1, r: "A manutenção é um custo fixo operacional que representa a logística necessária para manter a tropa." },
+            { q: "O que acontece à vida das tuas tropas se a reserva de um recurso de manutenção chegar a zero?", a: ["Tornam-se invisíveis", "A produção acelera", "A vida e a moral diminuem gradualmente a cada hora", "As unidades desertam"], c: 2, r: "Exato! A fome e a falta de combustível geram danos de atrito horários (1% HP)." },
+            { q: "Qual é a vantagem tática de manter a Capital situada nas províncias iniciais (Core)?", a: ["Garante moral a 100% onde a produção é máxima", "Aumenta velocidade dos aviões", "Produz unidades nucleares", "Imune a espiões"], c: 0, r: "A proximidade com a capital elimina a penalização de distância, maximizando a extração de recursos." },
+            { q: "Como é que as unidades terrestres recuperam a sua vida passivamente sem ouro?", a: ["Ao derrotar inimigos", "1% na mudança de dia em solo pátrio", "Em qualquer lugar do mapa", "Ao subir de nível"], c: 1, r: "A recuperação exige tempo fora de combate e acesso à logística de bases seguras nacionais." },
+            { q: "Qual a diferença entre 'Direito de Passagem' e 'Partilhar Mapa'?", a: ["Nenhuma", "Partilhar Mapa revela posição e visão total das unidades", "Direito de Passagem é para coligações", "Shared Map custa recursos"], c: 1, r: "Partilhar Mapa é transparência total sobre os movimentos do aliado." },
+            { q: "Abaixo de que nível de moral uma província corre o risco de revolta na mudança de dia?", a: ["Abaixo de 50%", "Abaixo de 25% de moral", "Apenas com 0%", "Sem bunker"], c: 1, r: "Aos 25% a insatisfação atinge o ponto de ruptura; exige guarnição militar forte." },
+            { q: "Como é que o empilhamento excessivo (Stacking) afeta a eficiência de ataque?", a: ["Bónus infinito", "O sistema SBOR reduz o dano proporcional acima de 10 unidades", "Só afeta a velocidade", "Aumenta a vida"], c: 1, r: "O sistema encoraja a dispersão estratégica para evitar 'doomstacks' invencíveis." },
+            { q: "Como é que o estado de 'Embargo Comercial' afeta a tua interação?", a: ["Bloqueia compras e vendas no mercado entre os dois países", "Rouba 10% dos recursos", "Impede voos sobre o território", "Oculta a pontuação"], c: 0, r: "O embargo é uma sanção económica que corta os laços comerciais antes da guerra." },
+            { q: "Quais unidades detetam unidades furtivas (ex: Milícia, Antitanque, Destruidores ou Comandos)?", a: ["Tanques Pesados", "Qualquer infantaria", "Motorizadas, Carros Blindados e Intercetores", "Armas Nucleares"], c: 2, r: "Carros Blindados e Intercetores possuem bónus de reconhecimento vital." },
+            { q: "Qual é o efeito do 'Pânico de Guerra' na moral da tua população?", a: ["Mais munições", "Penalização baseada no número de guerras ativas", "Dobra velocidade", "Nenhum efeito"], c: 1, r: "Estar em conflito com demasiadas nações simultaneamente destrói a estabilidade interna." }
+        ];
+
+        let currentQuizSet = [];
+        let currentQIndex = 0;
+        let score = 0;
+
+        function initQuiz(type) {
+            currentQuizSet = type === 'doutrinas' ? quizDataDoutrinas : quizDataFAQ;
+            const title = type === 'doutrinas' ? "MISSÃO: DOUTRINAS" : "MISSÃO: JOGABILIDADE";
+            currentQIndex = 0;
+            score = 0;
+            document.getElementById("quiz-selector").classList.add("hidden");
+            document.getElementById("quiz-display").classList.remove("hidden");
+            document.getElementById("quiz-title").innerText = title;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = currentQuizSet[currentQIndex];
+            document.getElementById("quiz-progress").innerText = `QUESTÃO ${currentQIndex + 1} / ${currentQuizSet.length}`;
+            document.getElementById("question-text").innerText = q.q;
+            
+            const container = document.getElementById("options-container");
+            container.innerHTML = "";
+            document.getElementById("feedback-container").classList.add("hidden");
+            document.getElementById("next-btn").classList.add("hidden");
+
+            q.a.forEach((opt, idx) => {
+                const b = document.createElement("button");
+                b.className = "option-btn w-full text-left p-5 rounded-2xl border bg-white font-bold text-sm shadow-sm hover:bg-gray-50";
+                b.innerText = opt;
+                b.onclick = () => selectOption(idx, b);
+                container.appendChild(b);
+            });
+        }
+
+        function selectOption(idx, btn) {
+            const q = currentQuizSet[currentQIndex];
+            const buttons = document.querySelectorAll('.option-btn');
+            const feedbackContainer = document.getElementById("feedback-container");
+            const feedbackStatus = document.getElementById("feedback-status");
+            const feedbackText = document.getElementById("feedback-text");
+
+            buttons.forEach(b => {
+                b.disabled = true;
+                b.classList.add('option-disabled');
+            });
+
+            if (idx === q.c) {
+                score++;
+                btn.classList.remove('option-disabled');
+                btn.classList.add('option-correct');
+                feedbackStatus.innerText = "✓ RESPOSTA CORRETA";
+                feedbackStatus.className = "font-black text-lg mb-2 text-green-600";
+                feedbackContainer.className = "mt-8 p-6 rounded-2xl border-2 border-green-200 bg-green-50 block shadow-inner";
+            } else {
+                btn.classList.remove('option-disabled');
+                btn.classList.add('option-wrong');
+                buttons[q.c].classList.remove('option-disabled');
+                buttons[q.c].classList.add('option-correct');
+                feedbackStatus.innerText = "✗ INCORRETO";
+                feedbackStatus.className = "font-black text-lg mb-2 text-red-600";
+                feedbackContainer.className = "mt-8 p-6 rounded-2xl border-2 border-red-200 bg-red-50 block shadow-inner";
+            }
+
+            feedbackText.innerText = q.r;
+            document.getElementById("next-btn").classList.remove("hidden");
+        }
+
+        function nextQuestion() {
+            currentQIndex++;
+            if (currentQIndex < currentQuizSet.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const display = document.getElementById("quiz-display");
+            display.innerHTML = `
+                <div class="text-center py-10">
+                    <h3 class="text-3xl font-black mb-4 uppercase text-[#1a2a3a]">RELATÓRIO FINAL</h3>
+                    <div class="text-8xl font-black text-[#d4af37] mb-8">${score} / ${currentQuizSet.length}</div>
+                    <p class="text-gray-500 mb-10 font-bold uppercase tracking-widest">${score === currentQuizSet.length ? "EXCELENTE COMANDANTE! CONHECIMENTO TOTAL." : "ESTUDE OS MANUAIS PARA ATINGIR A PERFEIÇÃO."}</p>
+                    <button onclick="location.reload()" class="px-12 py-5 bg-[#1a2a3a] text-white rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-gray-800 transition-all">
+                        VOLTAR AO MENU
+                    </button>
+                </div>
+            `;
+        }
+    </script>
+
+    <footer class="fixed bottom-4 right-4 text-[10px] text-gray-400 font-bold z-[9999] opacity-70">
+        Criado por Afonso Sousa (RisenWarlord)
+    </footer>
+
+</body>
+</html>
