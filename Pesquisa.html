@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa - Academia da Legião Estrangeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .nav-link { transition: all 0.2s; border-bottom: 3px solid transparent; }
+        .nav-link:hover { background-color: #f1f5f9; color: #1a2a3a; }
+        .active-link { color: #1a2a3a !important; border-bottom-color: #d4af37 !important; background-color: #f1f5f9; }
+        .research-card { transition: transform 0.2s; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .research-card:hover { transform: translateY(-4px); }
+        .section-title-bar { border-left: 4px solid #d4af37; padding-left: 16px; margin-bottom: 24px; }
+    </style>
+</head>
+<body class="text-gray-800 relative min-h-screen">
+
+    <!-- Header com Logótipo Oficial -->
+    <header class="bg-[#1a2a3a] text-white py-8 border-b-4 border-[#d4af37] text-center px-4">
+        <div class="flex justify-center mb-4">
+            <img src="Academia Legião Estrangeira.jpg" alt="Logótipo Academia Legião Estrangeira" class="h-32 w-32 rounded-full border-2 border-[#d4af37] object-cover shadow-lg">
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tighter">ACADEMIA DA LEGIÃO ESTRANGEIRA</h1>
+        <p class="italic text-[#d4af37] mt-2 text-sm md:text-base font-medium">"Legio Patria Nostra · Estratégia · Força · Coordenação"</p>
+    </header>
+
+    <!-- Navegação Modular -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md overflow-x-auto flex border-b border-gray-200">
+        <a href="index.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Início</a>
+        <a href="doutrinas.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Doutrinas</a>
+        <a href="combate.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Combate</a>
+        <a href="unidades.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Unidades</a>
+        <a href="pesquisa.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-center active-link">Pesquisa</a>
+        <a href="altocomando.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Alto Comando</a>
+        <a href="espionagem.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Espionagem</a>
+        <a href="quiz.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Avaliação</a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-8 pb-24">
+        
+        <!-- DOUTRINA: PLANEAMENTO DE PESQUISA -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8 font-bold">
+            <div class="section-title-bar">
+                <h2 class="text-2xl font-extrabold text-[#1a2a3a] uppercase tracking-tight">DOUTRINA: PLANEAMENTO DE PESQUISA</h2>
+            </div>
+            
+            <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-10 rounded-r-lg">
+                <p class="text-sm text-blue-900 font-black mb-2 uppercase flex items-center gap-2">
+                    ⚠️ DIRETRIZ ECONÓMICA FUNDAMENTAL
+                </p>
+                <p class="text-sm text-blue-800 leading-relaxed font-bold">
+                    A árvore tecnológica deve ser <strong>adequada à produção base de recursos do teu país</strong>. Se o teu território inicial produz pouco Petróleo, evite pesquisar frotas de Couraçados ou Bombardeiros Estratégicos logo no início. Pesquisar o que não tens capacidade de produzir em massa é um desperdício tático que atrasa a modernização do teu exército real.
+                </p>
+            </div>
+
+            <!-- Grelha de Doutrinas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <!-- Aliados -->
+                <div class="research-card p-6 bg-white border-t-4 border-[#1565c0] rounded shadow-sm">
+                    <h4 class="font-black text-[#1565c0] uppercase text-sm mb-4">ALIADOS (SUPERIORIDADE TÉCNICA)</h4>
+                    <div class="text-xs space-y-3 text-gray-700">
+                        <p><strong>Vantagem:</strong> Tempo de pesquisa reduzido (-25%). Podes alcançar tecnologias de nível 3 enquanto outros ainda estão no nível 2.</p>
+                        <p><strong>Dia 1:</strong> Focar em Artilharia e Intercetores. Precisas de defesa aérea e longo alcance para compensar a velocidade reduzida das tuas tropas.</p>
+                        <p><strong>Meta:</strong> Especialização em Paraquedistas e Unidades Motorizadas para compensar a lentidão inerente da doutrina.</p>
+                    </div>
+                </div>
+
+                <!-- Eixo -->
+                <div class="research-card p-6 bg-white border-t-4 border-[#c62828] rounded shadow-sm">
+                    <h4 class="font-black text-[#c62828] uppercase text-sm mb-4">EIXO (QUALIDADE ELITE)</h4>
+                    <div class="text-xs space-y-3 text-gray-700">
+                        <p><strong>Desafio:</strong> Pesquisas caras e lentas. Não podes pesquisar tudo; deves escolher 3 ou 4 linhas principais.</p>
+                        <p><strong>Dia 1:</strong> Tanque Médio e Bombardeiros de Ataque. Precisas de unidades que decidam a batalha pelo poder bruto individual.</p>
+                        <p><strong>Meta:</strong> Maximizar o nível dos Tanques Pesados (Tiger) e Intercetores para proteger os teus investimentos caros.</p>
+                    </div>
+                </div>
+
+                <!-- Comintern -->
+                <div class="research-card p-6 bg-white border-t-4 border-[#7b1fa2] rounded shadow-sm">
+                    <h4 class="font-black text-[#7b1fa2] uppercase text-sm mb-4">COMINTERN (TORRENTE DE AÇO)</h4>
+                    <div class="text-xs space-y-3 text-gray-700">
+                        <p><strong>Vantagem:</strong> Desbloqueio antecipado de Artilharia e Infantaria. Manutenção baixíssima permite frotas colossais.</p>
+                        <p><strong>Dia 1:</strong> Artilharia Nível 2 e Tanque Pesado (KV-1). Ignora a milícia; a tua força real está na massa de artilharia protegida por infantaria de linha.</p>
+                        <p><strong>Meta:</strong> Produção em massa de Artilharia de Foguetes (Katyusha) para aniquilar pilhas inimigas por saturação de fogo.</p>
+                    </div>
+                </div>
+
+                <!-- Pan-Asiática -->
+                <div class="research-card p-6 bg-white border-t-4 border-[#e65100] rounded shadow-sm">
+                    <h4 class="font-black text-[#e65100] uppercase text-sm mb-4">PAN-ASIÁTICA (GUERRA DE MANOBRA)</h4>
+                    <div class="text-xs space-y-3 text-gray-700">
+                        <p><strong>Vantagem:</strong> Visão ampliada e velocidade extrema (+20%). Vês o inimigo antes dele te ver.</p>
+                        <p><strong>Dia 1:</strong> Carro Blindado Nível 2 e Tanque Leve. O teu objetivo é capturar capitais vazias antes do inimigo reagir.</p>
+                        <p><strong>Meta:</strong> Dominar os mares com Bombardeiros Navais e Couraçados rápidos (Yamato). Usa a velocidade para "bater e fugir".</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANÁLISE DE RECURSOS -->
+            <div class="p-10 bg-gray-50 border border-gray-200 rounded-2xl shadow-sm text-center">
+                <h4 class="font-black text-[#1a2a3a] text-sm uppercase mb-10 tracking-widest">ANÁLISE DE RECURSOS VS TECNOLOGIA</h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 font-bold">
+                    <div class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm text-left">
+                        <strong class="text-green-700 block mb-3 underline text-[11px] uppercase tracking-wider">FOCO EM METAL:</strong>
+                        <p class="text-[10px] text-gray-600 leading-relaxed">Priorizar Tanques Médios, Destruidores de Tanques e Navios de Guerra.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm text-left">
+                        <strong class="text-blue-700 block mb-3 underline text-[11px] uppercase tracking-wider">FOCO EM PETRÓLEO:</strong>
+                        <p class="text-[10px] text-gray-600 leading-relaxed">Priorizar Força Aérea, Infantaria Motorizada e Submarinos.</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm text-left">
+                        <strong class="text-purple-700 block mb-3 underline text-[11px] uppercase tracking-wider">FOCO EM COMIDA:</strong>
+                        <p class="text-[10px] text-gray-600 leading-relaxed">Priorizar Unidades de longo alcance e Pesquisas Secretas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="fixed bottom-4 right-4 text-[10px] text-gray-400 font-bold z-[9999] opacity-70">
+        Criado por Afonso Sousa (RisenWarlord)
+    </footer>
+
+</body>
+</html>
