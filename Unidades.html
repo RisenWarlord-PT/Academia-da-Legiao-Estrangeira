@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidades - Academia da Legião Estrangeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .nav-link { transition: all 0.2s; border-bottom: 3px solid transparent; }
+        .nav-link:hover { background-color: #f1f5f9; color: #1a2a3a; }
+        .active-link { color: #1a2a3a !important; border-bottom-color: #d4af37 !important; background-color: #f1f5f9; }
+        .unit-table th { background-color: #1a2a3a; color: #d4af37; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; padding: 12px; }
+        .unit-table td { padding: 12px; border-bottom: 1px solid #e2e8f0; font-size: 0.85rem; }
+        .unit-table tr:nth-child(even) { background-color: #f9fafb; }
+        .unit-category-title { border-left: 4px solid #d4af37; padding-left: 16px; margin-bottom: 24px; font-weight: 800; color: #1a2a3a; text-transform: uppercase; letter-spacing: 0.5px; }
+    </style>
+</head>
+<body class="text-gray-800 relative min-h-screen">
+
+    <!-- Header com Logótipo Oficial -->
+    <header class="bg-[#1a2a3a] text-white py-8 border-b-4 border-[#d4af37] text-center px-4">
+        <div class="flex justify-center mb-4">
+            <img src="Academia Legião Estrangeira.jpg" alt="Logótipo Academia Legião Estrangeira" class="h-32 w-32 rounded-full border-2 border-[#d4af37] object-cover shadow-lg">
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tighter">ACADEMIA DA LEGIÃO ESTRANGEIRA</h1>
+        <p class="italic text-[#d4af37] mt-2 text-sm md:text-base font-medium">"Legio Patria Nostra · Estratégia · Força · Coordenação"</p>
+    </header>
+
+    <!-- Navegação Modular -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md overflow-x-auto flex border-b border-gray-200">
+        <a href="index.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Início</a>
+        <a href="doutrinas.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Doutrinas</a>
+        <a href="combate.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Combate</a>
+        <a href="unidades.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-center active-link">Unidades</a>
+        <a href="pesquisa.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Pesquisa</a>
+        <a href="altocomando.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Alto Comando</a>
+        <a href="espionagem.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Espionagem</a>
+        <a href="quiz.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Avaliação</a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-8 pb-24">
+        
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-12">
+            <h2 class="text-3xl font-black text-[#1a2a3a] mb-12 uppercase tracking-tight">CATÁLOGO TÁTICO DE UNIDADES</h2>
+
+            <!-- INFANTARIA -->
+            <div class="mb-16">
+                <h3 class="unit-category-title text-xl flex items-center gap-3">
+                    <span class="text-2xl">🪖</span> CATEGORIA: INFANTARIA
+                </h3>
+                <div class="overflow-x-auto border rounded-xl shadow-sm">
+                    <table class="w-full unit-table">
+                        <thead>
+                            <tr>
+                                <th class="text-left w-1/4">UNIDADE</th>
+                                <th class="text-left">FUNÇÃO TÁTICA</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-bold text-gray-700">
+                            <tr><td>Milícia</td><td>Defesa urbana/floresta barata. Invisível em cidades e florestas. Lenta.</td></tr>
+                            <tr><td>Infantaria</td><td>Espinha dorsal equilibrada. Necessária para capturar e segurar território.</td></tr>
+                            <tr><td>Infantaria Motorizada</td><td>Rápida em estradas. Excelente contra infantaria em terreno aberto.</td></tr>
+                            <tr><td>Infantaria Mecanizada</td><td>Blindagem leve com alto poder de fogo. O topo da força terrestre humana.</td></tr>
+                            <tr><td>Comandos</td><td>Unidade de elite furtiva. Ignora penalidades de terreno e deteta inimigos ocultos.</td></tr>
+                            <tr><td>Paraquedistas</td><td>Infiltração aérea profunda. Salto atrás das linhas para sabotagem logística.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- BLINDADOS -->
+            <div class="mb-16">
+                <h3 class="unit-category-title text-xl flex items-center gap-3">
+                    <span class="text-2xl">🚜</span> CATEGORIA: BLINDADOS
+                </h3>
+                <div class="overflow-x-auto border rounded-xl shadow-sm">
+                    <table class="w-full unit-table">
+                        <thead>
+                            <tr>
+                                <th class="text-left w-1/4">UNIDADE</th>
+                                <th class="text-left">FUNÇÃO TÁTICA</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-bold text-gray-700">
+                            <tr><td>Carro Blindado</td><td>Reconhecimento avançado. Alta visão e velocidade. Deteta comandos e milícias.</td></tr>
+                            <tr><td>Tanque Leve</td><td>Blitzkrieg inicial. Rápido e mortal contra infantaria desprotegida.</td></tr>
+                            <tr><td>Tanque Médio</td><td>O cavalo de batalha. Equilíbrio perfeito entre armadura, velocidade e dano.</td></tr>
+                            <tr><td>Tanque Pesado</td><td>O martelo. Máxima resistência. Lento, mas imparável em combate direto.</td></tr>
+                            <tr><td>Destruidor de Tanques</td><td>Especialista anti-blindados. Defesa massiva contra ataques de tanques.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ARMAMENTOS (SUPORTE) -->
+            <div class="mb-16">
+                <h3 class="unit-category-title text-xl flex items-center gap-3">
+                    <span class="text-2xl">🎯</span> CATEGORIA: ARMAMENTOS (SUPORTE)
+                </h3>
+                <div class="overflow-x-auto border rounded-xl shadow-sm">
+                    <table class="w-full unit-table">
+                        <thead>
+                            <tr>
+                                <th class="text-left w-1/4">UNIDADE</th>
+                                <th class="text-left">FUNÇÃO TÁTICA</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-bold text-gray-700">
+                            <tr><td>Antitanque</td><td>Defesa estática económica contra blindados. Essencial para segurar linhas.</td></tr>
+                            <tr><td>Artilharia</td><td>Rainha das batalhas. Bombardeamento à distância sem risco de contra-ataque.</td></tr>
+                            <tr><td>Artilharia AP (Móvel)</td><td>Artilharia montada em chassi blindado. Segue o ritmo dos tanques.</td></tr>
+                            <tr><td>Antiaéreo</td><td>Escudo contra a força aérea. Protege unidades de bombardeamentos.</td></tr>
+                            <tr><td>Antiaéreo AP (Móvel)</td><td>Defesa aérea móvel para colunas blindadas em movimento.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FORÇA AÉREA -->
+            <div class="mb-16">
+                <h3 class="unit-category-title text-xl flex items-center gap-3">
+                    <span class="text-2xl">✈️</span> CATEGORIA: FORÇA AÉREA
+                </h3>
+                <div class="overflow-x-auto border rounded-xl shadow-sm">
+                    <table class="w-full unit-table">
+                        <thead>
+                            <tr>
+                                <th class="text-left w-1/4">UNIDADE</th>
+                                <th class="text-left">FUNÇÃO TÁTICA</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-bold text-gray-700">
+                            <tr><td>Intercetor</td><td>Superioridade aérea. Caça bombardeiros e aviões de reconhecimento.</td></tr>
+                            <tr><td>Bombardeiro Tático</td><td>Supressão terrestre. Foco em destruir infantaria e veículos leves.</td></tr>
+                            <tr><td>Bombardeiro de Ataque</td><td>Especialista anti-armadura. Mortal contra tanques e navios.</td></tr>
+                            <tr><td>Bombardeiro Estratégico</td><td>Guerra económica. Destrói edifícios, aeroportos e moral das cidades.</td></tr>
+                            <tr><td>Bombardeiro Naval</td><td>Patrulha oceânica. Longo alcance para detetar e afundar frotas.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FORÇA NAVAL -->
+            <div class="mb-16">
+                <h3 class="unit-category-title text-xl flex items-center gap-3">
+                    <span class="text-2xl">⚓</span> CATEGORIA: FORÇA NAVAL
+                </h3>
+                <div class="overflow-x-auto border rounded-xl shadow-sm">
+                    <table class="w-full unit-table">
+                        <thead>
+                            <tr>
+                                <th class="text-left w-1/4">UNIDADE</th>
+                                <th class="text-left">FUNÇÃO TÁTICA</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-bold text-gray-700">
+                            <tr><td>Destróier</td><td>Sentinela dos mares. Deteta e caça submarinos. Defesa AA naval.</td></tr>
+                            <tr><td>Cruzador</td><td>Navio equilibrado. O terror dos aviões no mar. Versátil.</td></tr>
+                            <tr><td>Couraçado</td><td>Soberano naval. Dano massivo e bombardeamento costeiro de longo alcance.</td></tr>
+                            <tr><td>Submarino</td><td>Assassino furtivo. Invisível exceto para destróieres. Ataca couraçados.</td></tr>
+                            <tr><td>Porta-aviões</td><td>Base aérea móvel. Projeta poder aéreo para longe das costas.</td></tr>
+                            <tr><td>Transporte</td><td>Vulnerável. Necessário para mover tropas terrestres entre continentes.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ARMAS SECRETAS -->
+            <div class="mb-8">
+                <h3 class="unit-category-title text-xl flex items-center gap-3">
+                    <span class="text-2xl">☢️</span> CATEGORIA: ARMAS SECRETAS
+                </h3>
+                <div class="overflow-x-auto border rounded-xl shadow-sm">
+                    <table class="w-full unit-table">
+                        <thead>
+                            <tr>
+                                <th class="text-left w-1/4">UNIDADE</th>
+                                <th class="text-left">FUNÇÃO TÁTICA</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-bold text-gray-700">
+                            <tr><td>Artilharia de Foguete</td><td>Dano de área massivo contra alvos moles. Ótima para limpar pilhas.</td></tr>
+                            <tr><td>Art. Foguete AP</td><td>Poder de fogo de foguetes com a mobilidade e proteção de um blindado.</td></tr>
+                            <tr><td>Canhão Ferroviário</td><td>Alcance absoluto. Bombardeia exércitos a uma distância segura. Lento.</td></tr>
+                            <tr><td>Foguetes (V1/V2)</td><td>Mísseis imparáveis de longo alcance. Destruição garantida do alvo.</td></tr>
+                            <tr><td>Caça-Foguete</td><td>Intercetor de alta velocidade para defesa pontual contra jatos inimigos.</td></tr>
+                            <tr><td>Bombardeiro Nuclear</td><td>O fim de tudo. Uma única bomba aniquila exércitos inteiros e cidades.</td></tr>
+                            <tr><td>Foguete Nuclear</td><td>Aniquilação total garantida sem possibilidade de interceção eficaz.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="fixed bottom-4 right-4 text-[10px] text-gray-400 font-bold z-[9999] opacity-70">
+        Criado por Afonso Sousa (RisenWarlord)
+    </footer>
+
+</body>
+</html>
