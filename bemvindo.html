@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-Vindo - Academia da Legião Estrangeira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .nav-link { transition: all 0.2s; border-bottom: 3px solid transparent; }
+        .nav-link:hover { background-color: #f1f5f9; color: #1a2a3a; }
+        .active-link { color: #1a2a3a !important; border-bottom-color: #d4af37 !important; background-color: #f1f5f9; }
+        .section-title-bar { border-left: 4px solid #d4af37; padding-left: 16px; margin-bottom: 24px; }
+        .welcome-card { transition: transform 0.2s; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .welcome-card:hover { transform: translateY(-3px); }
+    </style>
+</head>
+<body class="text-gray-800 relative min-h-screen font-bold">
+
+    <!-- Header Oficial -->
+    <header class="bg-[#1a2a3a] text-white py-8 border-b-4 border-[#d4af37] text-center px-4">
+        <div class="flex justify-center mb-4">
+            <img src="logo.png" alt="Logo" class="h-32 w-32 rounded-full border-2 border-[#d4af37] object-cover shadow-lg">
+        </div>
+        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tighter">ACADEMIA DA LEGIÃO ESTRANGEIRA</h1>
+        <p class="italic text-[#d4af37] mt-2 text-sm md:text-base font-medium">"Legio Patria Nostra · Estratégia · Força · Coordenação"</p>
+    </header>
+
+    <!-- Navegação Modular -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md overflow-x-auto flex border-b border-gray-200">
+        <a href="index.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Início</a>
+        <a href="bemvindo.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-center active-link">Bem-Vindo</a>
+        <a href="doutrinas.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Doutrinas</a>
+        <a href="combate.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Combate</a>
+        <a href="unidades.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Unidades</a>
+        <a href="pesquisa.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Pesquisa</a>
+        <a href="altocomando.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Alto Comando</a>
+        <a href="espionagem.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Espionagem</a>
+        <a href="quiz.html" class="nav-link flex-1 min-w-[100px] py-4 px-2 text-xs font-bold uppercase text-gray-500 text-center">Avaliação</a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-8 pb-24">
+        
+        <!-- Manifesto -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 mb-8 text-center">
+            <div class="mb-8 inline-block">
+                <h2 class="text-2xl md:text-3xl font-black text-[#1a2a3a] uppercase tracking-widest">MANIFESTO DA ACADEMIA</h2>
+                <div class="w-full h-1 bg-[#d4af37] mt-2"></div>
+            </div>
+            <p class="text-gray-600 italic font-medium mb-12 max-w-3xl mx-auto leading-relaxed">
+                Somos uma aliança implacável, unida pela coragem e determinação. Os nossos membros são guerreiros ferozes, liderados por um comando estratégico, procurando a vitória e a glória nos campos de batalha.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <!-- Lema (Atualizado) -->
+                <div class="welcome-card bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h4 class="text-[#1a2a3a] font-black text-sm uppercase mb-6 text-center tracking-widest border-b pb-2">O NOSSO LEMA</h4>
+                    <ul class="text-xs space-y-4 text-gray-700 font-bold">
+                        <li class="flex items-center gap-2"><span class="text-[#d4af37]">▸</span> Estratégia</li>
+                        <li class="flex items-center gap-2"><span class="text-[#d4af37]">▸</span> Força</li>
+                        <li class="flex items-center gap-2"><span class="text-[#d4af37]">▸</span> Coordenação</li>
+                        <li class="flex items-center gap-2"><span class="text-[#d4af37]">▸</span> Unidade e Lealdade</li>
+                        <li class="flex items-center gap-2"><span class="text-[#d4af37]">▸</span> Espírito de Luta Implacável</li>
+                    </ul>
+                </div>
+                <!-- Objetivo -->
+                <div class="welcome-card bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h4 class="text-[#1a2a3a] font-black text-sm uppercase mb-6 text-center tracking-widest border-b pb-2">O NOSSO OBJETIVO</h4>
+                    <ul class="text-xs space-y-4 text-gray-700 font-bold">
+                        <li class="flex items-center gap-2"><span class="text-[#d4af37]">▸</span> Ensinar e Aprender</li>
+                        <li class="flex items-center gap-2"><span class="text-[#d4af37]">▸</span> Defender sempre o aliado</li>
+                        <li class="flex items-center gap-2"><span class="text-[#d4af37]">▸</span> Jogar sempre para GANHAR</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deveres e Direitos -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Deveres -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <div class="section-title-bar">
+                    <h2 class="text-xl font-extrabold text-[#1a2a3a] uppercase tracking-tight">DEVERES</h2>
+                </div>
+                <p class="text-xs text-gray-500 mb-6 font-bold uppercase">Critérios de Permanência no Batalhão:</p>
+                <div class="space-y-4">
+                    <div class="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-400">
+                        <strong class="text-xs text-amber-900 block mb-1 uppercase tracking-wider">▸ Atividade</strong>
+                        <p class="text-[10px] text-amber-800 font-medium leading-relaxed uppercase">Participar ativamente nas atividades e missões da aliança.</p>
+                    </div>
+                    <div class="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-400">
+                        <strong class="text-xs text-amber-900 block mb-1 uppercase tracking-wider">▸ Evolução</strong>
+                        <p class="text-[10px] text-amber-800 font-medium leading-relaxed uppercase">Mostrar constante aprimoramento nas tuas competências de jogo.</p>
+                    </div>
+                    <div class="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-400">
+                        <strong class="text-xs text-amber-900 block mb-1 uppercase tracking-wider">▸ Liderança</strong>
+                        <p class="text-[10px] text-amber-800 font-medium leading-relaxed uppercase">Inspirar e guiar os teus companheiros de equipa no campo.</p>
+                    </div>
+                    <div class="p-4 bg-amber-50 rounded-lg border-l-4 border-amber-400">
+                        <strong class="text-xs text-amber-900 block mb-1 uppercase tracking-wider">▸ Perfil da Aliança</strong>
+                        <p class="text-[10px] text-amber-800 font-medium leading-relaxed uppercase">Adotar integralmente os valores e objetivos da nossa comunidade.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direitos -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <div class="section-title-bar">
+                    <h2 class="text-xl font-extrabold text-[#1a2a3a] uppercase tracking-tight">DIREITOS</h2>
+                </div>
+                <p class="text-xs text-gray-500 mb-6 font-bold uppercase">Benefícios do Combatente:</p>
+                <div class="space-y-4">
+                    <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                        <strong class="text-xs text-blue-900 block mb-1 uppercase tracking-wider">▸ Treino</strong>
+                        <p class="text-[10px] text-blue-800 font-medium leading-relaxed uppercase">Prepara-te para os desafios dos torneios internacionais com apoio de líderes experientes.</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                        <strong class="text-xs text-blue-900 block mb-1 uppercase tracking-wider">▸ Comunidade</strong>
+                        <p class="text-[10px] text-blue-800 font-medium leading-relaxed uppercase">Integração num grupo unido, motivado e focado no sucesso coletivo.</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-400">
+                        <strong class="text-xs text-blue-900 block mb-1 uppercase tracking-wider">▸ Oportunidades</strong>
+                        <p class="text-[10px] text-blue-800 font-medium leading-relaxed uppercase">Acesso a recursos exclusivos e a eventos especiais de elite.</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-4 bg-slate-900 text-white rounded-xl shadow-lg border border-[#d4af37]">
+                    <p class="text-[10px] italic leading-relaxed uppercase">
+                        <strong>Lembrete:</strong> A participação nos batalhões é dinâmica. Um sistema de rotatividade garante que os membros mais ativos e empenhados tenham sempre uma vaga.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="fixed bottom-4 right-4 text-[10px] text-gray-400 font-bold opacity-70">
+        Criado por Afonso Sousa (RisenWarlord)
+    </footer>
+
+</body>
+</html>
